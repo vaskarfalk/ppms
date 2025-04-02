@@ -86,9 +86,7 @@ class GalleryResource extends Resource
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_active')
-                    ->boolean(),
-
-            
+                    ->boolean(),            
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -109,10 +107,7 @@ class GalleryResource extends Resource
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),
-                ]),
-
-
-              
+                ]),              
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
