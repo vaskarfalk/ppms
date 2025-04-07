@@ -13,6 +13,7 @@ use Filament\Tables;
 use Filament\Forms\Components\Group;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Http\RedirectResponse;
 
@@ -236,6 +237,9 @@ class PageHeadingResource extends Resource
             ])->columns(5);
     }
 
+   
+  
+
     public static function table(Table $table): Table
     {
         return $table
@@ -314,12 +318,25 @@ class PageHeadingResource extends Resource
 
 
     
+    public static function canCreate(): bool
+    {
+        return false;
+    }
+
+  
+
+public static function canDelete(Model $record): bool
+{
+    return false; // Disable the "Delete" functionality
+}
+
+
 
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListPageHeadings::route('/'),
-            'create' => Pages\CreatePageHeading::route('/create'),
+            // 'create' => Pages\CreatePageHeading::route('/create'),
             'edit' => Pages\EditPageHeading::route('/{record}/edit'),
             //    'edit' => Pages\EditPageHeading::route('/'),
 

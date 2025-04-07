@@ -5,11 +5,12 @@ namespace App\Livewire;
 use App\Models\ContactFormSubmission;
 use App\Models\Service;
 use App\Models\Settings\FeaturesSection;
+use App\Models\Settings\PageHeading;
 use App\Models\Testimonial;
 use App\Notifications\HomeEnquiryForm;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
-
+use Intervention\Image\Laravel\Facades\Image;
 class HomePage extends Component
 {
 
@@ -23,6 +24,8 @@ class HomePage extends Component
     public $message;
     public $testimonials;
     public $success = false;
+    public $pageHeading;
+   
     protected $rules = [
         'fname' => 'required|string|min:3|max:255',
         'lname' => 'required|string|min:3|max:255',
@@ -32,13 +35,24 @@ class HomePage extends Component
         'message' => 'required|string|min:5',
     ];
 
+
+
+
+    
+
+
     public function mount()
     {
 
         $this->services = Service::where('is_active', 1)->get();
         $this->testimonials = Testimonial::where('is_active', 1)->get();
         $this->featuresSections = FeaturesSection::all();
+        $this->pageHeading = PageHeading::firstOrFail();
+      
+
     }
+
+
 
 
     public function send()
