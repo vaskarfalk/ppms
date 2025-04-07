@@ -28,7 +28,9 @@ class PlymouthAdminPanelProvider extends PanelProvider
             ->path('plymouth_admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                // 'primary' => Color::Amber,
+                'primary' =>  '#1e9f40',
+
             ])
             ->brandLogo(asset('assets/images/logo.png'))
             ->darkModeBrandLogo(asset('assets/images/logo-2.png'))

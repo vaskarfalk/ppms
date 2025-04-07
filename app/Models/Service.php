@@ -14,7 +14,13 @@ class Service extends Model
         'slug',
         'is_active',
         'image',
+        'icon',
+        'images',
+        'short_content',
         'meta_title',
         'meta_description',
+    ];
+    protected $casts = [
+        'images' => 'array',
     ];
 }

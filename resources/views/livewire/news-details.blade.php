@@ -1,0 +1,3 @@
+<div>
+news details
+</div>

@@ -24,7 +24,7 @@ class PostResource extends Resource
     protected static ?string $model = Post::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
-    protected static ?string $navigationGroup = 'Blog';
+    protected static ?string $navigationGroup = 'News';
     protected static ?int $navigationSort = 1;
     public static function form(Form $form): Form
     {

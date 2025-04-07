@@ -1,0 +1,58 @@
+    <div class="container">
+
+        @if ($success)
+            <div class="alert alert-success">
+                Your message has been sent successfully!
+            </div>
+        @endif
+        <form class="row g-3" wire:submit="send" method="POST">
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <div class="col-6">
+                <input type="text" class="form-control" wire:model="fname" placeholder="First name"
+                    aria-label="First name">
+                @error('fname')
+                    <div class="alert alert-danger" role="alert">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            <div class="col-6">
+                <input type="text" class="form-control" wire:model="lname" placeholder="Last name"
+                    aria-label="Last name">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmailr" class="form-label">Phone</label>
+                <input type="tel" class="form-control" wire:model="phone" id="inputEmailr">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" wire:model="email" id="inputEmail4">
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Services</label>
+                <select id="inputState" wire:model="services" class="form-select">
+                    <option selected>Choose...</option>
+                    <option value="1">new ser</option>
+                </select>
+            </div>
+
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Address</label>
+                <textarea wire:model="message" id="inputAddress" cols="30" rows="10">Message</textarea>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+        </form>
+    </div>

@@ -45,17 +45,44 @@ class ServiceResource extends Resource
                                     ->image()
                                     ->required()
                                     ->directory('services'),
+
+                                Forms\Components\FileUpload::make('icon')
+                                    ->image()
+                                    ->required()
+                                    ->directory('services'),
+
                                 Forms\Components\Textarea::make('excerpt')
-                                    ->maxLength(255)
+                                    ->required()
+
                                     ->label('Short Description')
                                     ->default(null),
+
                                 Forms\Components\Toggle::make('is_active')
                                     ->required()
                                     ->default(true),
+                                Forms\Components\MarkdownEditor::make('short_content')
+                                    ->required()
+                                    ->label('Short Content')
+                                    ->default(null)
+                                    ->fileAttachmentsDirectory('services')
+                                    ->columnSpanFull(),
                             ]),
 
                     ]),
-                    Section::make('Description')
+                    Section::make('Service Image')
+                    ->schema([
+                        Forms\Components\Repeater::make('images')
+                            ->label('Service Image')
+                            ->required() 
+                             ->schema([
+                                Forms\Components\FileUpload::make('image')
+                                    ->image()
+                                    ->label('Service Image')
+                                    ->directory('services')
+                                    ->required(),
+                            ]),
+                    ]),
+                Section::make('Description')
                     ->schema([
                         Forms\Components\Grid::make()
                             ->schema([
@@ -78,7 +105,7 @@ class ServiceResource extends Resource
                                     ->nullable(),
                             ]),
                     ]),
-              
+
             ]);
     }
 
@@ -92,9 +119,12 @@ class ServiceResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
+
+                    Tables\Columns\ImageColumn::make('icon'),
+
                 Tables\Columns\IconColumn::make('is_active')
                     ->boolean(),
-      
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -107,7 +137,7 @@ class ServiceResource extends Resource
             ->filters([
                 //
                 Tables\Filters\Filter::make('is_active')
-                    ->query(fn (Builder $query): Builder => $query->where('is_active', true))
+                    ->query(fn(Builder $query): Builder => $query->where('is_active', true))
                     ->label('Active'),
             ])
             ->actions([
@@ -116,7 +146,7 @@ class ServiceResource extends Resource
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),
                 ]),
-              
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
