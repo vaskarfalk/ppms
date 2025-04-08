@@ -10,7 +10,7 @@ use App\Models\Testimonial;
 use App\Notifications\HomeEnquiryForm;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
-use Intervention\Image\Laravel\Facades\Image;
+
 class HomePage extends Component
 {
 
@@ -87,8 +87,10 @@ class HomePage extends Component
 
         ]));
         // Reset the form fields
-        $this->reset();
+        // $this->reset();
+        $this->reset(['fname', 'lname', 'email', 'phone', 'selectedService', 'message']);
         $this->success = true;
+      
     }
 
     public function render()

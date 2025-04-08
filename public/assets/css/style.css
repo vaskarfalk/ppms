@@ -770,6 +770,9 @@ section {
   border-style: none;
   box-shadow: -28px 28px 0px 0px #1e9f40;
 }
+.image-box-wrapper-alt img{
+  box-shadow: 28px 28px 0px 0px #1e9f40;
+}
 .service-slide-item{
   padding: 10px;
 }
@@ -801,7 +804,7 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 35px 30px;
+  padding: 0 36px 30px;
   text-align: center;
 }
 .service-icon{
@@ -990,4 +993,47 @@ ul.list-inline li a:hover {
 .footer-bottom-wrapper p{
   color: #c4c4c4;
   font-size: 15px;
+}
+.featured-box-alt .featured-box-wrapper{
+  flex-direction: row;
+  justify-content: start;
+}
+.featured-box-alt .featured-box-wrapper h4{
+  margin: 0 0 0 12px;
+  text-align: left;
+  color: #fff;
+  font-size: 18px;
+}
+.featured-box-alt .featured-box-icon svg{
+  width: 54px;
+  height: 54px;
+}
+.featured-box-alt .featured-box-wrapper:after{
+  display: none !important;
+}
+.medium-title{
+  font-size: 30px;
+  color: #0a0a0a;
+  font-weight: 500;
+}
+
+.ul-list{
+  padding-left: 0;
+  margin-bottom: 44px;
+}
+.ul-list li {
+  list-style-type: none;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #5a5a5a;
+  padding-left:28px;
+  margin-bottom: 16px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 21 21" style="enable-background:new 0 0 512 512" xml:space="preserve" fill-rule="evenodd" class=""><g><circle cx="10.5" cy="10.5" r="8.96" fill="%23249d39" opacity="1" data-original="%2300ba00" class=""></circle></g></svg>');
+  background-repeat: no-repeat;
+  background-position:0 4px;
+  background-size: 16px 16px;
+}
+.hero-slider-caption-wrapper-alt{  
+  background: #00000085;
 }

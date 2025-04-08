@@ -23,6 +23,6 @@ Route::get('news', News::class)->name('news');
 Route::get('news/{news}', NewsDetails::class)->name('news_detail');
 Route::get('what-we-do', WhatWeDo::class)->name('what_we_do');
 Route::get('testimonials', Testimonials::class)->name('testimonials');
-Route::get('service', Services::class)->name('services');
+Route::get('services', Services::class)->name('services');
 Route::get('services/{service}', ServiceDetail::class)->name('service_detail');
 Route::get('contact', Contact::class)->name('contact');

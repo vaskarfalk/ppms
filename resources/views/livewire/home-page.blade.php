@@ -16,18 +16,18 @@
             </div>
         @endforeach --}}
 
-            @foreach ($pageHeading->web_banner as $pp)
+            @foreach ($pageHeading->web_banner as $web)
                 <div class="slider-item">
-                    <img src="{{ asset('storage/' . $pp['image']) }}"
+                    <img src="{{ asset('storage/' . $web['image']) }}"
                         srcset="
-                {{ asset('storage/' . $pp['image']) }} 300w,
-                {{ asset('storage/' . $pp['image']) }} 600w,
-                {{ asset('storage/' . $pp['image']) }} 900w,
-                {{ asset('storage/' . $pp['image']) }} 1200w,
-                {{ asset('storage/' . $pp['image']) }} 1500w
+                {{ asset('storage/' . $web['image']) }} 300w,
+                {{ asset('storage/' . $web['image']) }} 600w,
+                {{ asset('storage/' . $web['image']) }} 900w,
+                {{ asset('storage/' . $web['image']) }} 1200w,
+                {{ asset('storage/' . $web['image']) }} 1500w
             "
                         sizes="(max-width: 480px) 300px, (max-width: 768px) 600px, (max-width: 1024px) 900px, 1200px"
-                        alt="{{ $pp['alt'] ?? 'Banner Image' }}" class="img-fluid">
+                        alt="{{ $web['alt'] ?? 'Banner Image' }}" class="img-fluid">
                 </div>
             @endforeach
 
@@ -98,7 +98,7 @@
                                     </div>
                                 @endif
 
-                                <form wire:submit="send" method="POST">
+                                <form wire:submit.prevent="send" method="POST">
                                     <div class="row">
                                         <div class="col-md-6 col-12 mb-4">
                                             <label for="first-name" class="form-label text-dark fw-semibold">First
@@ -136,11 +136,6 @@
                                             <select id="service-select" wire:model="selectedService"
                                                 class="form-select">
                                                 <option>Select A Service</option>
-
-                                                {{-- @foreach ($services as $service)                           
-                              <option value="{{ $service->title }}">{{ $service->title }}</option>
-                          @endforeach
-                           --}}
 
                                                 @if ($services && $services->isNotEmpty())
 
@@ -355,12 +350,7 @@
                                             <h6 class="fs-6 fw-semibold mb-2">{{ $testimonial->name ?? null }}</h6>
                                             <div class="review-star mb-4">
 
-                                                {{-- <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i> --}}
-
+                                        
                                                 @for ($i = 1; $i <= floor($testimonial->star_rating); $i++)
                                                     <i class="bi bi-star-fill"></i> <!-- Full star -->
                                                 @endfor
@@ -373,9 +363,6 @@
                                                     <i class="bi bi-star"></i> <!-- Empty star -->
                                                 @endfor
 
-                                                {{-- @for ($i = 1; $i <= $testimonial->star_rating; $i++)
-                                    <i class="bi bi-star-fill"></i>
-                                @endfor --}}
                                             </div>
                                         </div>
                                         <h5 class="mb-2 fs-5 fw-bold fst-italic">
