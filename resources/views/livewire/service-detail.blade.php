@@ -188,7 +188,7 @@
             </div>
           </div>
 
-          <div class="col-md-12">
+          <div class="col-md-12" wire:ignore>
             <div class="service-carousal testimonis">
                 @if ($testimonials && $testimonials->isNotEmpty())
                 @foreach ($testimonials as $testimonial)

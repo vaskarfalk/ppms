@@ -7,14 +7,8 @@
     
 @endpush
 <div>
-    <section class="section position-relative hero-section">
-        <div class="slider hero-slider">
-
-            {{-- @foreach ($pageHeading->web_banner as $pp)
-            <div class="slider-item">
-                <img src="{{ asset('storage/' . $pp['image']) }}" alt="{{$pp['alt']}}" class="img-fluid">
-            </div>
-        @endforeach --}}
+    <section class="section position-relative hero-section" >
+        <div class="slider hero-slider" wire:ignore>
 
             @foreach ($pageHeading->web_banner as $web)
                 <div class="slider-item">
@@ -81,36 +75,26 @@
                             <div class="form-wrapper-heading">
                                 <h4>Book A Service Now</h4>
                                 <p>£10 off any services when you book online</p>
+                           
                             </div>
-                            @if ($success)
-                                <div class="alert alert-success">
-                                    Your message has been sent successfully!
-                                </div>
-                            @endif
+                         
                             <div class="form-wrapper-inner">
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-
-                                <form wire:submit.prevent="send" method="POST">
+                              
+                                <form wire:submit="send">
                                     <div class="row">
                                         <div class="col-md-6 col-12 mb-4">
                                             <label for="first-name" class="form-label text-dark fw-semibold">First
                                                 Name</label>
                                             <input type="text" class="form-control" id="first-name"
                                                 wire:model="fname" aria-describedby="" placeholder="Ex: John">
+                                                @error('fname') <span class="text-danger">{{ $message }}</span> @enderror 
                                         </div>
                                         <div class="col-md-6 col-12 mb-4">
                                             <label for="flast-name" class="form-label text-dark fw-semibold">Last
                                                 Name</label>
                                             <input type="text" class="form-control" id="last-name" wire:model="lname"
                                                 aria-describedby="" placeholder="Ex: Doe">
+                                                @error('lname') <span class="text-danger">{{ $message }}</span> @enderror 
                                         </div>
                                     </div>
                                     <div class="row">
@@ -119,12 +103,14 @@
                                                 Number</label>
                                             <input type="tel" class="form-control" id="phone-number"
                                                 wire:model="phone" aria-describedby="" placeholder="Enter Number">
+                                                @error('phone') <span class="text-danger">{{ $message }}</span> @enderror 
                                         </div>
                                         <div class="col-md-6 col-12 mb-4">
                                             <label for="email-address" class="form-label text-dark fw-semibold">Email
                                                 Address</label>
                                             <input type="Email" class="form-control" id="email-address"
                                                 wire:model="email" aria-describedby="" placeholder="Enter Email">
+                                                @error('email') <span class="text-danger">{{ $message }}</span> @enderror 
                                         </div>
                                     </div>
 
@@ -149,6 +135,8 @@
 
 
                                             </select>
+                                            @error('selectedService') <span class="text-danger">{{ $message }}</span> @enderror 
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -156,15 +144,33 @@
                                             <label for="Textarea" class="form-label text-dark fw-semibold">What Service
                                                 You Require?</label>
                                             <textarea class="form-control" wire:model="message" placeholder="Your Message" id="Textarea" rows="3"></textarea>
+                                            @error('message') <span class="text-danger">{{ $message }}</span> @enderror 
+
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <div class="col-md-12 col-12">
-                                            <input type="submit" name="" value="Book Online Now"
+                                            <input type="submit"  value="Book Online Now"
                                                 class="btn custom-btn w-100">
+                                                {{-- <button type="submit" class="btn custom-btn w-100">Book Online Now</button> --}}
+
+                                                <div wire:loading wire:target="send" class="loading-spinner">
+                                                      <span class="spinner-border text-white" aria-hidden="true"></span>
+                                                       <span role="status" class="text-white">Loading...</span>
+                                                </div>
                                         </div>
                                     </div>
                                 </form>
+                               @if ($success)
+                               <div class="toast show align-items-center mx-auto  text-bg-success border-0 my-3"  role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="d-flex ">
+                                  <div class="toast-body">
+                                    Success! Your form has been submitted.
+                                  </div>
+                                  <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                              </div>
+                            @endif
                             </div>
                         </div>
                     </div>
@@ -251,7 +257,7 @@
         </div>
     </section>
 
-    <section class="section position-relative grey-bg services-section py-60">
+    <section class="section position-relative grey-bg services-section py-60" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -262,7 +268,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-12">
+                <div class="col-lg-12" wire:ignore>
                     <div class="service-carousal service-slider">
 
 
@@ -290,9 +296,6 @@
                             @endforeach
 
                         @endif
-
-
-
 
                     </div>
                 </div>
@@ -339,7 +342,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12" wire:ignore>
                     <div class="service-carousal testimonis">
 
                         @if ($testimonials && $testimonials->isNotEmpty())
@@ -404,5 +407,9 @@
             </div>
         </div>
     </section>
+
+
+
+   
 
 </div>

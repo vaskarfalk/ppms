@@ -134,7 +134,54 @@ class PageHeadingResource extends Resource
                                     ->columnSpanFull(),
 
                             ]),
-                  
+
+
+                        Section::make('About Page')
+                            ->schema([
+                                Forms\Components\FileUpload::make('about_bg_image')
+                                    ->image()
+                                    ->label('About Background Image')
+                                    ->directory('page_heading'),
+
+                                Forms\Components\TextInput::make('about_title')
+                                    ->maxLength(255)
+                                    ->default(null),
+                                Forms\Components\TextInput::make('about_subtitle')
+                                    ->maxLength(255)
+                                    ->default(null),
+                                Forms\Components\FileUpload::make('ourstory_image')
+                                    ->image()
+                                    ->label('Our Story Image')
+                                    ->directory('page_heading'),
+                                Forms\Components\TextInput::make('ourstory_title')
+                                    ->maxLength(255)
+                                    ->default(null),
+                                Forms\Components\TextInput::make('ourstory_subtitle')
+                                    ->maxLength(255)
+                                    ->default(null),
+
+                                Forms\Components\MarkdownEditor::make('ourstory_description')
+                                    ->columnSpanFull()
+                                    ->fileAttachmentsDirectory('page_heading'),
+
+                                Forms\Components\TextInput::make('whychoose_title')
+                                    ->maxLength(255)
+                                    ->default(null),
+                                Forms\Components\TextInput::make('whychoose_subtitle')
+                                    ->maxLength(255)
+                                    ->default(null),
+
+                                Forms\Components\FileUpload::make('whychoose_image')
+                                    ->image()
+                                    ->label('Why Choose Image')
+                                    ->directory('page_heading'),
+
+                                Forms\Components\MarkdownEditor::make('whychoose_description')
+                                    ->columnSpanFull()
+                                    ->fileAttachmentsDirectory('page_heading'),
+                            ]),
+
+
 
 
 
@@ -218,8 +265,25 @@ class PageHeadingResource extends Resource
                                     ->maxLength(255)
                                     ->label('We Can Help Button URL')
                                     ->default(null),
+                                Forms\Components\TextInput::make('btn_6')
+                                    ->maxLength(255)
+                                    ->label('About Ourstory Button')
+                                    ->default(null),
+                                Forms\Components\TextInput::make('btn_6_url')
+                                    ->maxLength(255)
+                                    ->label('About Ourstory Button URL')
+                                    ->default(null),
+                                Forms\Components\TextInput::make('btn_7')
+                                    ->maxLength(255)
+                                    ->label('Why Choose Button')
+                                    ->default(null),
+                                Forms\Components\TextInput::make('btn_7_url')
+                                    ->maxLength(255)
+                                    ->label('Why Choose Button URL')
+                                    ->default(null),
+                                    
                             ]),
-                            Section::make('We Can Help')
+                        Section::make('We Can Help')
                             ->schema([
 
                                 Forms\Components\TextInput::make('help_title')
@@ -229,16 +293,128 @@ class PageHeadingResource extends Resource
                                     ->default(null),
                             ]),
 
+
+                        Section::make('Gallery Page')
+                            ->schema([
+                                Forms\Components\FileUpload::make('gallery_bg_image')
+                                    ->image()
+                                    ->label('Gallery Background Image')
+                                    ->directory('page_heading'),
+                                Forms\Components\TextInput::make('gallery_title')
+                                    ->maxLength(255)
+                                    ->default(null),
+                                Forms\Components\TextInput::make('gallery_subtitle')
+                                    ->maxLength(255)
+                                    ->default(null),
+
+
+
+                            ]),
+
+
+                        Section::make('News Page')
+                            ->schema([
+
+                                Forms\Components\TextInput::make('news_title')
+                                    ->maxLength(255)
+                                    ->default(null),
+                                Forms\Components\TextInput::make('news_subtitle')
+                                    ->maxLength(255)
+                                    ->default(null),
+                                Forms\Components\MarkdownEditor::make('news_description')
+                                    ->columnSpanFull()
+                                    ->fileAttachmentsDirectory('page_heading'),
+
+                            ]),
+
+                        Section::make('What We Do Page')
+                            ->schema([
+
+                                Forms\Components\TextInput::make('what_we_do_title')
+                                    ->maxLength(255)
+                                    ->default(null),
+                                Forms\Components\TextInput::make('what_we_do_subtitle')
+                                    ->maxLength(255)
+                                    ->default(null),
+                                Forms\Components\MarkdownEditor::make('what_we_do_description')
+                                    ->columnSpanFull()
+                                    ->fileAttachmentsDirectory('page_heading'),
+
+                            ]),
+
+
+                        Section::make('Social Media')
+                            ->schema([
+
+                                Forms\Components\TextInput::make('facebook_link')
+                                    ->maxLength(255)
+                                    ->default(null),
+                                Forms\Components\TextInput::make('instagram_link')
+                                    ->maxLength(255)
+                                    ->default(null),
+                                Forms\Components\TextInput::make('twitter_link')
+                                    ->maxLength(255)
+                                    ->default(null),
+
+
+                            ]),
+
+
+
+
                     ])->columnSpan(2),
 
+                Group::make()
+                    ->schema([
+                        Section::make('Contact Page')
+                            ->schema([
+                                Forms\Components\Grid::make()
+                                    ->schema([
+                                        Forms\Components\TextInput::make('contact_title')
+                                            ->maxLength(255)
+                                            ->default(null),
 
+                                        Forms\Components\TextInput::make('contact_subtitle')
+                                            ->maxLength(255)
+                                            ->default(null),
+                                        Forms\Components\FileUpload::make('contact_bg_image')
+                                            ->image()
+                                            ->label('Contact Background Image')
+                                            ->directory('page_heading'),
+                                        Forms\Components\TextInput::make('whatsapp_number')
+                                            ->maxLength(255)
+                                            ->default(null),
+                                    ]),
+                                Forms\Components\Grid::make()
+                                    ->schema([
+                                        Forms\Components\TextInput::make('contact_heading')
+                                            ->maxLength(255)
+                                            ->default(null),
+                                        Forms\Components\TextInput::make('contact_subheading')
+                                            ->maxLength(255)
+                                            ->default(null),
+                                        Forms\Components\TextInput::make('contact_number')
+                                            ->maxLength(255)
+                                            ->default(null),
+                                        Forms\Components\TextInput::make('contact_email')
+                                            ->maxLength(255)
+                                            ->default(null),
+                                        Forms\Components\Textarea::make('contact_address')
+                                            ->default(null),
 
+                                        Forms\Components\Textarea::make('contact_maps')
+                                            ->default(null),
 
+                                    ]),
+
+                            ]),
+
+                    ])->columnSpan(5),
             ])->columns(5);
     }
 
-   
-  
+
+
 
     public static function table(Table $table): Table
     {
@@ -317,18 +493,18 @@ class PageHeadingResource extends Resource
     }
 
 
-    
+
     public static function canCreate(): bool
     {
         return false;
     }
 
-  
 
-public static function canDelete(Model $record): bool
-{
-    return false; // Disable the "Delete" functionality
-}
+
+    public static function canDelete(Model $record): bool
+    {
+        return false; // Disable the "Delete" functionality
+    }
 
 
 

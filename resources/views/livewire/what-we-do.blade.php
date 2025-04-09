@@ -1,3 +1,62 @@
-<div>
-  what we do
+<div class="what-we-do">
+  <section class="section position-relative py-60 service-details-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 mx-auto">
+          <div class="content-section text-center">
+            <p class="fs-5 lh-base">At Plymouth Property Maintenance Services, we provide a wide range of expert solutions to keep your property in top condition. From plumbing, heating, and electrical work to plastering, painting, tiling, kitchens, bathrooms, loft conversions, and more.</p>
+            <p class="fs-5 lh-base">We handle every aspect of property care with professionalism and precision. Whether it’s a small repair or a full renovation, our skilled team delivers high-quality workmanship, reliable service, and results you can trust. We’re here to maintain, improve, and transform your space – inside and out.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>   
+  @if ($whatdos && $whatdos->isNotEmpty())
+  @foreach ($whatdos as $key =>$whats)
+  <section class="section position-relative  {{ $key % 2 != 0 ? 'who-are-section-alt' : 'who-are-section' }}  my-60 mt-0">
+    <div class="container">
+  
+      <div class="row gy-4">
+        <div class="col-lg-6 col-md-6 mb-4 mb-lg-0 mb-md-0  {{ $key % 2 != 0 ? 'order-lg-2 order-md-2 offset-lg-1' : '' }} ">
+          <div class="image-box-wrapper {{ $key % 2 != 0 ? 'image-box-wrapper-alt' : '' }} mt-100 mb-5">
+            <img src="{{asset('storage/'.$whats->image)}}" srcset="{{asset('storage/'.$whats->image)}} 300w, {{asset('storage/'.$whats->image)}} 600w, {{asset('storage/'.$whats->image)}}.jpg 900w, {{asset('storage/'.$whats->image)}} 1200w, {{asset('storage/'.$whats->image)}} 1500w" sizes="(max-width: 480px) 300px, (max-width: 768px) 600px, (max-width: 1024px) 900px, 1200px" alt="Responsive Example Image">
+          </div>
+        </div>
+
+        <div class="col-lg-5 col-md-6   {{ $key % 2 != 0 ? 'order-lg-1 order-md-1' : 'offset-lg-1 '  }}  ">
+          <div class="content-box-wrapper mt-100">
+            <div class="heading mb-4">
+              <h4>{{$whats->sub_title}}</h4>
+              <h2>{{$whats->title}}</h2>
+            </div>
+            <p>{!! $whats->description !!}</p>
+            <a href="{{$whats->url}}" class="btn custom-btn mt-4">{{$whats->button_name}}</a>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+  @endforeach
+        
+  @endif
+
+
+  <section class="section position-relative help-section d-flex align-items-center">
+    <div class="container h-100">
+      <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
+        <div class="col-md-12">
+          <div class="d-lg-flex justify-content-between align-items-center">
+            <div class="heading">
+              <h2 class="text-white">Have a Property Issue? We Can Help!</h2>
+            </div>
+            <a href="#" class="btn custom-btn black-bg-btn">Book Online Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 </div>

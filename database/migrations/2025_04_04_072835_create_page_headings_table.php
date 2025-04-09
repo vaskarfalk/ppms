@@ -56,10 +56,61 @@ return new class extends Migration
             $table->string('btn_4')->nullable();
             $table->string('btn_4_url')->nullable();
 
-
             $table->string('help_title')->nullable();
             $table->string('btn_5')->nullable();
             $table->string('btn_5_url')->nullable();
+
+
+
+
+            $table->string('about_bg_image')->nullable();
+            $table->string('about_title')->nullable();
+            $table->string('about_subtitle')->nullable();
+            $table->string('ourstory_image')->nullable();
+            $table->string('ourstory_title')->nullable();
+            $table->string('ourstory_subtitle')->nullable();
+            $table->longText('ourstory_description')->nullable();
+            $table->string('btn_6')->nullable();
+            $table->string('btn_6_url')->nullable();
+
+
+            $table->string('whychoose_title')->nullable();         
+            $table->string('whychoose_subtitle')->nullable();
+            $table->string('whychoose_image')->nullable();        
+            $table->longText('whychoose_description')->nullable();
+            $table->string('btn_7')->nullable();
+            $table->string('btn_7_url')->nullable();
+
+
+            $table->string('gallery_bg_image')->nullable();
+            $table->string('gallery_title')->nullable();
+            $table->string('gallery_subtitle')->nullable();
+
+
+            $table->string('news_title')->nullable();
+            $table->string('news_subtitle')->nullable();
+            $table->longText('news_description')->nullable();
+
+            $table->string('what_we_do_title')->nullable();
+            $table->string('what_we_do_subtitle')->nullable();
+            $table->longText('what_we_do_description')->nullable();
+
+
+            $table->string('contact_bg_image')->nullable();
+            $table->string('contact_title')->nullable();
+            $table->string('contact_subtitle')->nullable();
+            $table->string('contact_heading')->nullable();
+            $table->string('contact_subheading')->nullable();
+            $table->string('contact_number')->nullable();
+            $table->string('whatsapp_number')->nullable();
+            $table->string('contact_email')->nullable();
+            $table->longText('contact_address')->nullable();
+            $table->longText('contact_maps')->nullable();
+
+            $table->string('facebook_link')->nullable();
+            $table->string('instagram_link')->nullable();
+            $table->string('twitter_link')->nullable();
+
 
             $table->timestamps();
         });

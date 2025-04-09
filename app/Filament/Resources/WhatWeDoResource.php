@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\WhatWeDoResource\Pages;
-use App\Filament\Resources\WhatWeDoResource\RelationManagers;
+
 use App\Models\WhatWeDo;
 use Filament\Forms;
 use Filament\Forms\Components\Group;
@@ -13,14 +13,14 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+
 
 class WhatWeDoResource extends Resource
 {
     protected static ?string $model = WhatWeDo::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-cursor-arrow-rays';
+    protected static ?string $navigationLabel = 'What We Do';
 
     public static function form(Form $form): Form
     {

@@ -1,7 +1,7 @@
 <div>
    <section class="section position-relative hero-section">
      <div class="hero-inner-banner-section d-block">
-       <img src="{{asset('assets/images/about-banner.jpg')}}" srcset="{{asset('assets/images/about-banner-768.jpg')}} 300w, {{asset('assets/images/about-banner-768.jpg')}} 600w, {{asset('assets/images/about-banner.jpg')}} 900w, {{asset('assets/images/about-banner.jpg')}} 1200w, {{asset('assets/images/about-banner.jpg')}} 1500w" sizes="(max-width: 480px) 300px, (max-width: 768px) 600px, (max-width: 1024px) 900px, 1200px" alt="Image" class="w-100">
+       <img src="{{asset('storage/'.$pageHeading->about_bg_image)}}" srcset="{{asset('storage/'.$pageHeading->about_bg_image)}} 300w, {{asset('storage/'.$pageHeading->about_bg_image)}} 600w, {{asset('storage/'.$pageHeading->about_bg_image)}} 900w, {{asset('storage/'.$pageHeading->about_bg_image)}} 1200w, {{asset('storage/'.$pageHeading->about_bg_image)}} 1500w" sizes="(max-width: 480px) 300px, (max-width: 768px) 600px, (max-width: 1024px) 900px, 1200px" alt="Image" class="w-100">
      </div>
 
      <div class="hero-slider-caption-wrapper banner-caption hero-slider-caption-wrapper-alt">
@@ -9,8 +9,8 @@
          <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
            <div class="col-md-12">
              <div class="hero-content-inner text-center">
-               <h3 class="text-uppercase text-white fs-4 medium-title mb-3 fw-semibold">about Us</h3>
-               <h1>Your Trusted Experts in<br>Property Maintenance</h1>               
+               <h3 class="text-uppercase text-white fs-4 medium-title mb-3 fw-semibold">{{$pageHeading->about_subtitle}}</h3>
+               <h1>{{$pageHeading->about_title}}</h1>               
                
              </div>
            </div>
@@ -25,19 +25,18 @@
        <div class="row">
          <div class="col-lg-6 col-md-6 mb-4 mb-lg-0 mb-md-0">
            <div class="image-box-wrapper mt-100 mb-5">
-             <img src="images/about-image.jpg" srcset="images/about-image-583.jpg 300w, images/about-image-583.jpg 600w, images/about-image-583.jpg 900w, images/about-image-583.jpg 1200w, images/about-image.jpg 1500w" sizes="(max-width: 480px) 300px, (max-width: 768px) 600px, (max-width: 1024px) 900px, 1200px" alt="Responsive Example Image">
+             <img src="{{asset('storage/'.$pageHeading->ourstory_image)}}" srcset="{{asset('storage/'.$pageHeading->ourstory_image)}} 300w, {{asset('storage/'.$pageHeading->ourstory_image)}} 600w, {{asset('storage/'.$pageHeading->ourstory_image)}} 900w, {{asset('storage/'.$pageHeading->ourstory_image)}} 1200w, {{asset('storage/'.$pageHeading->ourstory_image)}} 1500w" sizes="(max-width: 480px) 300px, (max-width: 768px) 600px, (max-width: 1024px) 900px, 1200px" alt="Responsive Example Image">
            </div>
          </div>
 
          <div class="col-lg-5 col-md-6 offset-lg-1">
            <div class="content-box-wrapper mt-100">
              <div class="heading mb-4">
-               <h4>OUR STORY</h4>
-               <h2>Your Trusted Experts in Property Maintenance</h2>
+               <h4>{{$pageHeading->ourstory_subtitle}}</h4>
+               <h2>{{$pageHeading->ourstory_title}}</h2>
              </div>
-             <p>At Plymouth Property Maintenance Services, we take pride in delivering high-quality, reliable, and professional property maintenance solutions tailored to meet your needs. With years of experience in the industry, our skilled team specializes in a wide range of services.</p>
-             <p>Our mission is to enhance and maintain the value, functionality, and aesthetic appeal of your property through expert craftsmanship and attention to detail.</p>
-             <a href="#" class="btn custom-btn mt-4">Contact Us</a>
+             {!! $pageHeading->ourstory_description !!}
+             <a href="{{$pageHeading->btn_6_url}}" class="btn custom-btn mt-4">{{$pageHeading->btn_6}}</a>
            </div>
          </div>
 
@@ -51,17 +50,17 @@
        <div class="row">
          <div class="col-lg-6 col-md-6 mb-4 mb-lg-0 mb-md-0 order-lg-2 order-md-2 offset-lg-1">
            <div class="image-box-wrapper image-box-wrapper-alt mb-5">
-             <img src="images/about-02.jpg" srcset="images/about-02.jpg 300w, images/about-02.jpg 600w, images/about-02.jpg 900w, images/about-02.jpg 1200w, images/about-02.jpg 1500w" sizes="(max-width: 480px) 300px, (max-width: 768px) 600px, (max-width: 1024px) 900px, 1200px" alt="Responsive Example Image">
+             <img src="{{asset('storage/'.$pageHeading->whychoose_image)}}" srcset="{{asset('storage/'.$pageHeading->whychoose_image)}} 300w, {{asset('storage/'.$pageHeading->whychoose_image)}} 600w, {{asset('storage/'.$pageHeading->whychoose_image)}} 900w, {{asset('storage/'.$pageHeading->whychoose_image)}} 1200w, {{asset('storage/'.$pageHeading->whychoose_image)}} 1500w" sizes="(max-width: 480px) 300px, (max-width: 768px) 600px, (max-width: 1024px) 900px, 1200px" alt="Responsive Example Image">
            </div>
          </div>
 
          <div class="col-lg-5 col-md-6 order-lg-1 order-md-1">
            <div class="content-box-wrapper">
              <div class="heading mb-4">
-               <h4>why choose us</h4>
-               <h2>Experience the Difference with Us!</h2>
+               <h4>{{$pageHeading->whychoose_subtitle}}</h4>
+               <h2>{{$pageHeading->whychoose_title}}</h2>
              </div>
-             <p>At Plymouth Property Maintenance Services, your property is our priority, and we are dedicated to bringing your ideas to life with precision, expertise, and care.</p>
+             <p>{!! $pageHeading->whychoose_description !!}</p>
 
              <div class="row mt-5">
                @if ($featuresSections && $featuresSections->isNotEmpty())
@@ -73,7 +72,7 @@
                                <img src="{{ asset('storage/' . $feature->image) }}"
                                    alt="{{ $feature->title }}">
                            </div>
-                           <h4>{{ $feature->title }}</h4>
+                           <h4 class="text-dark">{{ $feature->title }}</h4>
                        </div>
                    </div>
                @endforeach

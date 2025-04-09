@@ -19,7 +19,7 @@ class TestimonialResource extends Resource
     protected static ?string $model = Testimonial::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
+   
     public static function form(Form $form): Form
     {
         return $form
@@ -36,6 +36,7 @@ class TestimonialResource extends Resource
                                 Forms\Components\TextInput::make('company_name')
                                     ->maxLength(255)
                                     ->default(null)
+                                    ->label('Review Title')
                                     ->required(),
                                 Forms\Components\TextInput::make('star_rating')
                                     ->maxLength(255)

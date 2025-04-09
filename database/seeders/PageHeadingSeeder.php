@@ -53,6 +53,48 @@ class PageHeadingSeeder extends Seeder
             'help_title' => 'btn 1',
             'btn_5' => 'btn 1',
             'btn_5_url' => 'http::btn',
+
+            
+            'about_bg_image'=>'1.png',
+            'about_title'=>'abot',
+            'about_subtitle' => 'subtitle',
+            'ourstory_image'=>'1.png',
+            'ourstory_title'=>'title',
+            'ourstory_subtitle'=>'subtitle',
+            'ourstory_description'=>'description',
+            'btn_6'=>'btn',
+            'btn_6_url'=>'btn',
+            'whychoose_title'=>'title',
+            'whychoose_subtitle'=>'subtitle',
+            'whychoose_description'=>'description',
+            'whychoose_image'=>'1.png',
+            'btn_7'=>'btn',
+            'btn_7_url'=>'btn',
+            'gallery_bg_image'=>'1.png',
+            'gallery_title'=>'title',
+            'gallery_subtitle'=>'subtitle',
+
+            'news_title'=>'title',
+            'news_subtitle'=>'subtitle',
+            'news_description'=>'description',
+
+            'what_we_do_title'=>'title',
+            'what_we_do_subtitle'=>'subtitle',
+            'what_we_do_description'=>'description',
+
+            'contact_bg_image'=>'1.png',
+            'contact_title'=>'title',
+            'contact_subtitle'=>'subtitle',
+            'contact_heading'=>'heading',
+            'contact_subheading'=>'subheading',
+            'contact_number'=>'number',
+            'contact_email'=>'email',
+            'whatsapp_number'=>'number',
+            'contact_address'=>'address',
+            'contact_maps'=>'map',
+            'facebook_link'=>'link',
+            'twitter_link'=>'link',
+            'instagram_link'=>'link',
     
         ]);
 

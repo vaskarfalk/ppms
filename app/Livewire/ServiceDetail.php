@@ -86,7 +86,7 @@ class ServiceDetail extends Component
         $this->success = true;
   
         $this->service = Service::where('slug', $this->service->slug)->firstOrFail();
-     
+       
     }
 
 
