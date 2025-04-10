@@ -95,6 +95,8 @@ return new class extends Migration
             $table->string('what_we_do_subtitle')->nullable();
             $table->longText('what_we_do_description')->nullable();
 
+            $table->string('contact_form_title')->nullable();
+            $table->string('contact_form_subtitle')->nullable();
 
             $table->string('contact_bg_image')->nullable();
             $table->string('contact_title')->nullable();

@@ -34,6 +34,35 @@ class ServiceDetail extends Component
         'message' => 'required|string|min:5',
     ];
 
+    protected function messages()
+    {
+        return [
+            'fname.required' => 'The first name is required.',
+            'fname.string' => 'The first name must be a valid string.',
+            'fname.min' => 'The first name must be at least 3 characters.',
+            'fname.max' => 'The first name may not be greater than 255 characters.',
+
+            'lname.required' => 'The last name is required.',
+            'lname.string' => 'The last name must be a valid string.',
+            'lname.min' => 'The last name must be at least 3 characters.',
+            'lname.max' => 'The last name may not be greater than 255 characters.',
+
+            'email.required' => 'The email address is required.',
+            'email.email' => 'The email address must be a valid email.',
+            'email.min' => 'The email address must be at least 3 characters.',
+            'email.max' => 'The email address may not be greater than 255 characters.',
+
+            'phone.required' => 'The phone number is required.',
+            'phone.numeric' => 'The phone number must be a valid number.',
+            'phone.min' => 'The phone number must be at least 10 digits.',
+
+            'selectedService.required' => 'Please select a service.',
+
+            'message.required' => 'The message is required.',
+            'message.string' => 'The message must be a valid string.',
+            'message.min' => 'The message must be at least 5 characters.',
+        ];
+    }
 
 
 
@@ -84,9 +113,8 @@ class ServiceDetail extends Component
         // $this->reset();
         $this->reset(['fname', 'lname', 'email', 'phone', 'selectedService', 'message']);
         $this->success = true;
-  
+
         $this->service = Service::where('slug', $this->service->slug)->firstOrFail();
-       
     }
 
 

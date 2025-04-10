@@ -40,9 +40,9 @@ class WhatWeDoResource extends Resource
                                             ->default(null),
                                     ]),
                             ]),
-                        Section::make('What We Do Image')
+                        Section::make('What We Do Description')
                             ->schema([
-                                Forms\Components\MarkdownEditor::make('description')
+                                Forms\Components\RichEditor::make('description')
                                     ->columnSpanFull()
                                     ->required()
                                     ->fileAttachmentsDirectory('what-we-do'),
@@ -62,12 +62,18 @@ class WhatWeDoResource extends Resource
                                     ->default(null)
                                     ->url()
                                     ->required(),
-                                Forms\Components\FileUpload::make('image')
-                                    ->image()
-                                    ->required()
-                                    ->directory('what-we-do'),
+                             
 
                             ]),
+                            Section::make('What We Do Image')
+                            ->schema([
+                                Forms\Components\FileUpload::make('image')
+                                ->image()
+                                ->required()
+                                ->directory('what-we-do'),
+
+                             
+                            ])
 
                     ])->columnSpan(1),
             ])->columns(3);

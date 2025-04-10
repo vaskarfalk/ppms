@@ -9,11 +9,11 @@ use Livewire\Component;
 class Gallery extends Component
 {
     public $pageHeading;
-    public $gallery;
+    public $galleries;
     public function mount()
     {
 
-        $this->gallery= ModelsGallery::all();
+        $this->galleries= ModelsGallery::all();
         $this->pageHeading = PageHeading::firstOrFail();
       
 

@@ -8,7 +8,7 @@
                                 alt="Logo" class="img-fluid"></a>
                     </div>
                     <div class="social-icon d-flex justify-content-lg-start align-items-center mt-4">
-                        <a href="#" class="d-flex justify-content-center align-items-center me-3 facebook">
+                        <a href="{{$pageHeading->facebook_link}}" class="d-flex justify-content-center align-items-center me-3 facebook">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
                                 viewBox="0 0 155.139 155.139" style="enable-background:new 0 0 512 512"
@@ -21,7 +21,7 @@
                                 </g>
                             </svg>
                         </a>
-                        <a href="#" class="d-flex justify-content-center align-items-center me-3">
+                        <a href="{{$pageHeading->instagram_link}}" class="d-flex justify-content-center align-items-center me-3">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
                                 viewBox="0 0 409.61 409.61" style="enable-background:new 0 0 512 512"
@@ -39,7 +39,7 @@
                             </svg>
                         </a>
 
-                        <a href="#" class="d-flex justify-content-center align-items-center">
+                        <a href="{{$pageHeading->twitter_link}}" class="d-flex justify-content-center align-items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
                                 viewBox="0 0 1226.37 1226.37" style="enable-background:new 0 0 512 512"
@@ -94,10 +94,10 @@
                 <div class="col-lg-3 col-md-3 col-12 mb-4 mb-lg-0 mb-md-0">
                     <div class="footer-box clearfix">
                         <h4>Address</h4>
-                        <p class="mb-4">123 Greenfield Road<br>Essex, CM1 2AB<br>United Kingdom</p>
-                        <a href="mailto:info@plymouth-property.co.uk"
-                            class="mb-2 d-lg-block">info@plymouth-property.co.uk</a>
-                        <a href="tel:+441234567890" class="mb-2">+44 123 456 7890</a>
+                        <p class="mb-4">{!! $pageHeading->contact_address !!}</p>
+                        <a href="mailto:{{$pageHeading->contact_email}}"
+                            class="mb-2 d-lg-block">{{$pageHeading->contact_email}}</a>
+                        <a href="tel:+{{$pageHeading->contact_number}}" class="mb-2">+{{$pageHeading->contact_number}}</a>
 
                     </div>
 
@@ -116,8 +116,8 @@
                             <p class="d-inline-block align-top mb-0">© <a href="#" class="">Plymouth
                                     Property Maintenance</a> 2025 | All Right Reserved.</p>
                             <ul class="d-inline-block align-top list-inline clearfix">
-                                <li><a href="#">Terms and Conditions</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a wire:navigate href="{{route('terms_and_conditions')}}">Terms and Conditions</a></li>
+                                <li><a wire:navigate href="{{route('privacy_policies')}}">Privacy Policy</a></li>
                             </ul>
 
                         </div>

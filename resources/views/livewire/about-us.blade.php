@@ -85,7 +85,7 @@
              </div>
 
 
-             <a href="#" class="btn custom-btn mt-5">Get a Quote</a>
+             <a href="{{$pageHeading->btn_7_url}}" class="btn custom-btn mt-5">{{$pageHeading->btn_7}}</a>
            </div>
          </div>
 

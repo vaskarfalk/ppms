@@ -71,15 +71,5 @@
         </div>
     </section>
 
-    @push('scripts')
-        <script src="{{ asset('assets/js/showmoreless.js') }}" type="text/javascript"></script>
-        <script type="text/javascript">
-            $(document).ready(function(e) {
-                $('.show-less-div-1').myOwnLineShowMoreLess({
-                    showLessLine: 3
-                });
-            });
-        </script>
-    @endpush
 
 </div>

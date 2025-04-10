@@ -82,6 +82,8 @@ class PageHeadingSeeder extends Seeder
             'what_we_do_subtitle'=>'subtitle',
             'what_we_do_description'=>'description',
 
+            'contact_form_title'=>'title',
+            'contact_form_subtitle'=>'subtitle',
             'contact_bg_image'=>'1.png',
             'contact_title'=>'title',
             'contact_subtitle'=>'subtitle',

@@ -16,6 +16,7 @@ use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Kahusoftware\FilamentCkeditorField\CKEditor;
 
 class ServiceResource extends Resource
 {
@@ -60,7 +61,7 @@ class ServiceResource extends Resource
                                 Forms\Components\Toggle::make('is_active')
                                     ->required()
                                     ->default(true),
-                                Forms\Components\MarkdownEditor::make('short_content')
+                                Forms\Components\RichEditor::make('short_content')
                                     ->required()
                                     ->label('Short Content')
                                     ->default(null)
@@ -86,10 +87,10 @@ class ServiceResource extends Resource
                     ->schema([
                         Forms\Components\Grid::make()
                             ->schema([
-                                Forms\Components\MarkdownEditor::make('content')
+                                CKEditor::make('content')
                                     ->required()
                                     ->label('Description')
-                                    ->fileAttachmentsDirectory('services')
+                                    ->uploadUrl(null)
                                     ->columnSpanFull(),
                             ]),
                     ]),

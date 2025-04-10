@@ -1,13 +1,12 @@
 @push('styles')
-<style>
-    .cov-p p{
-        color: #fff;
-    }
-</style>
-    
+    <style>
+        .cov-p p {
+            color: #fff;
+        }
+    </style>
 @endpush
 <div>
-    <section class="section position-relative hero-section" >
+    <section class="section position-relative hero-section">
         <div class="slider hero-slider" wire:ignore>
 
             @foreach ($pageHeading->web_banner as $web)
@@ -49,17 +48,13 @@
 
 
         </div>
-
         <div class="hero-slider-caption-wrapper banner-caption">
             <div class="container h-100">
                 <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
                     <div class="col-lg-7 col-md-12">
                         <div class="hero-content-inner">
                             <h1 class="mb-3">{{ $pageHeading->title ?? null }}</h1>
-
-
                             <p>{{ $pageHeading->description ?? null }}</p>
-
                             <div class="d-flex align-items-center caption-btn-with-icon mt-5">
                                 <a wire:navigate href="{{ $pageHeading->btn_1_url }}"
                                     class="btn custom-btn">{{ $pageHeading->btn_1 ?? null }}</a>
@@ -71,15 +66,15 @@
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-12 d-none d-lg-block d-md-block">
+
                         <div class="form-wrapper">
                             <div class="form-wrapper-heading">
-                                <h4>Book A Service Now</h4>
-                                <p>£10 off any services when you book online</p>
-                           
+                                <h4>{{ $pageHeading->contact_form_title }}</h4>
+                                <p>{{ $pageHeading->contact_form_subtitle }}</p>
                             </div>
-                         
+
                             <div class="form-wrapper-inner">
-                              
+
                                 <form wire:submit="send">
                                     <div class="row">
                                         <div class="col-md-6 col-12 mb-4">
@@ -87,14 +82,18 @@
                                                 Name</label>
                                             <input type="text" class="form-control" id="first-name"
                                                 wire:model="fname" aria-describedby="" placeholder="Ex: John">
-                                                @error('fname') <span class="text-danger">{{ $message }}</span> @enderror 
+                                            @error('fname')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="col-md-6 col-12 mb-4">
                                             <label for="flast-name" class="form-label text-dark fw-semibold">Last
                                                 Name</label>
                                             <input type="text" class="form-control" id="last-name" wire:model="lname"
                                                 aria-describedby="" placeholder="Ex: Doe">
-                                                @error('lname') <span class="text-danger">{{ $message }}</span> @enderror 
+                                            @error('lname')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row">
@@ -103,14 +102,18 @@
                                                 Number</label>
                                             <input type="tel" class="form-control" id="phone-number"
                                                 wire:model="phone" aria-describedby="" placeholder="Enter Number">
-                                                @error('phone') <span class="text-danger">{{ $message }}</span> @enderror 
+                                            @error('phone')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="col-md-6 col-12 mb-4">
                                             <label for="email-address" class="form-label text-dark fw-semibold">Email
                                                 Address</label>
                                             <input type="Email" class="form-control" id="email-address"
                                                 wire:model="email" aria-describedby="" placeholder="Enter Email">
-                                                @error('email') <span class="text-danger">{{ $message }}</span> @enderror 
+                                            @error('email')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -135,44 +138,51 @@
 
 
                                             </select>
-                                            @error('selectedService') <span class="text-danger">{{ $message }}</span> @enderror 
+                                            @error('selectedService')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
 
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 col-12 mb-4">
-                                            <label for="Textarea" class="form-label text-dark fw-semibold">What Service
-                                                You Require?</label>
+                                            <label for="Textarea" class="form-label text-dark fw-semibold">Describe Your
+                                                Problem</label>
                                             <textarea class="form-control" wire:model="message" placeholder="Your Message" id="Textarea" rows="3"></textarea>
-                                            @error('message') <span class="text-danger">{{ $message }}</span> @enderror 
+                                            @error('message')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
 
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <div class="col-md-12 col-12">
-                                            <input type="submit"  value="Book Online Now"
-                                                class="btn custom-btn w-100">
-                                                {{-- <button type="submit" class="btn custom-btn w-100">Book Online Now</button> --}}
+                                            <input type="submit" value="Book Online Now" class="btn custom-btn w-100">
+                                            {{-- <button type="submit" class="btn custom-btn w-100">Book Online Now</button> --}}
 
-                                                <div wire:loading wire:target="send" class="loading-spinner">
-                                                      <span class="spinner-border text-white" aria-hidden="true"></span>
-                                                       <span role="status" class="text-white">Loading...</span>
-                                                </div>
+                                            <div wire:loading wire:target="send" class="loading-spinner">
+                                                <span class="spinner-border text-white" aria-hidden="true"></span>
+                                                <span role="status" class="text-white">Loading...</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
-                               @if ($success)
-                               <div class="toast show align-items-center mx-auto  text-bg-success border-0 my-3"  role="alert" aria-live="assertive" aria-atomic="true">
-                                <div class="d-flex ">
-                                  <div class="toast-body">
-                                    Success! Your form has been submitted.
-                                  </div>
-                                  <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                                </div>
-                              </div>
-                            @endif
+                                @if ($success)
+                                    <div class="toast show align-items-center mx-auto  text-bg-success border-0 my-3"
+                                        role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="d-flex ">
+                                            <div class="toast-body">
+                                                Success! Your form has been submitted.
+                                            </div>
+                                            <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                                data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
+
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -247,7 +257,7 @@
                         </div>
                         {!! $pageHeading->who_description ?? '' !!}
 
-                        <a wire:navigate  href="{{ $pageHeading->btn_2_url ?? null }}" class="btn custom-btn mt-4">
+                        <a wire:navigate href="{{ $pageHeading->btn_2_url ?? null }}" class="btn custom-btn mt-4">
                             {{ $pageHeading->btn_2 ?? null }}</a>
                     </div>
                 </div>
@@ -257,7 +267,7 @@
         </div>
     </section>
 
-    <section class="section position-relative grey-bg services-section py-60" >
+    <section class="section position-relative grey-bg services-section py-60">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -281,13 +291,14 @@
                                                 alt="{{ $service->title }}" class="img-fluid"></div>
                                         <div class="service-box-wrapper-content">
                                             <div class="service-icon">
-                                              
+
                                                 <img src="{{ asset('storage/' . $service->icon) }}"
                                                     alt="{{ $service->title }}">
                                             </div>
                                             <h3>{{ $service->title }}</h3>
-                                            <p>{{ $service->excerpt }}</p>
-                                            <a  wire:navigate  href="{{ route('service_detail', $service->slug) }}"
+                                            {{-- <p>{{ $service->excerpt }}</p> --}}
+                                            <p>{{ Str::words($service->excerpt, 15, '...') }}</p>
+                                            <a wire:navigate href="{{ route('service_detail', $service->slug) }}"
                                                 class="btn custom-btn mt-2">Read More <i
                                                     class="bi bi-chevron-right ms-1"></i></a>
                                         </div>
@@ -321,10 +332,10 @@
                         way.
                     </p> --}}
                     <div class="cov-p">
-                       
+
                         {!! $pageHeading->covered_description ?? '' !!}
                     </div>
-                    <a wire:navigate  href="{{ $pageHeading->btn_3_url }}"
+                    <a wire:navigate href="{{ $pageHeading->btn_3_url }}"
                         class="btn custom-btn mt-4">{{ $pageHeading->btn_3 ?? null }}</a>
                 </div>
             </div>
@@ -353,7 +364,7 @@
                                             <h6 class="fs-6 fw-semibold mb-2">{{ $testimonial->name ?? null }}</h6>
                                             <div class="review-star mb-4">
 
-                                        
+
                                                 @for ($i = 1; $i <= floor($testimonial->star_rating); $i++)
                                                     <i class="bi bi-star-fill"></i> <!-- Full star -->
                                                 @endfor
@@ -370,7 +381,7 @@
                                         </div>
                                         <h5 class="mb-2 fs-5 fw-bold fst-italic">
                                             {{ $testimonial->company_name ?? null }}</h5>
-                                        <p class="text-muted fs-6">
+                                        <p class="text-muted fs-6 show-less-div-1">
                                             {{ $testimonial->description ?? null }}</p>
                                         </p>
                                     </div>
@@ -385,7 +396,7 @@
                 </div>
 
                 <div class="col-md-12 d-flex justify-content-center align-items-center">
-                    <a wire:navigate  href="{{ route('testimonials') }}"
+                    <a wire:navigate href="{{ route('testimonials') }}"
                         class="btn custom-btn mt-5">{{ $pageHeading->btn_4 ?? null }}</a>
                 </div>
             </div>
@@ -400,7 +411,8 @@
                         <div class="heading">
                             <h2 class="text-white">{{ $pageHeading->help_title ?? null }}</h2>
                         </div>
-                        <a wire:navigate  href="{{ $pageHeading->btn_5_url ?? null }}" class="btn custom-btn black-bg-btn">
+                        <a wire:navigate href="{{ $pageHeading->btn_5_url ?? null }}"
+                            class="btn custom-btn black-bg-btn">
                             {{ $pageHeading->btn_5 ?? null }}</a>
                     </div>
                 </div>
@@ -410,6 +422,6 @@
 
 
 
-   
+
 
 </div>

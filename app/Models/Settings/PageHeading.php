@@ -63,6 +63,8 @@ class PageHeading extends Model
         'what_we_do_subtitle',
         'what_we_do_description',
         'contact_bg_image',
+        'contact_form_title',
+        'contact_form_subtitle',
         'contact_title',
         'contact_subtitle',
         'contact_heading',

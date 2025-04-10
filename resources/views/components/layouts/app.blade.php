@@ -25,6 +25,12 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"
         as="style" async>
 
+
+        <link rel="preload stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+        as="style" async>
+
+
+
     <link rel="preload stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
         as="style" async>
     <link rel="preload stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -176,6 +182,44 @@
 
         });
     </script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script>
+    Fancybox.bind('[data-fancybox]', {
+        //
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $(".list").click(function() {
+            const dataValue = $(this).attr("data-filter")
+            if (dataValue == "all-items") {
+                $(".image-item").show()
+            } else {
+                $(".image-item").not("." + dataValue).hide()
+                $(".image-item").filter("." + dataValue).show()
+            }
+        })
+    })
+    $(".list").click(function() {
+        $(this).addClass("active").siblings().removeClass("active")
+    })
+</script>
+
+<script src="{{ asset('assets/js/showmoreless.js') }}" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function(e) {
+        $('.show-less-div-1').myOwnLineShowMoreLess({
+            showLessLine: 3
+        });
+    });
+</script>
+
+
+
 
     @livewireScripts()
     <link href="{{ asset('assets/slick/slick.css') }}" rel="preload stylesheet" as="style" async>
