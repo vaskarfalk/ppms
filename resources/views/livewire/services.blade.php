@@ -25,7 +25,8 @@
                                         <img src="{{ asset('storage/' . $service->icon) }}" alt="{{ $service->title }}">
                                     </div>
                                     <h3>{{ $service->title }}</h3>
-                                    <p>{{ $service->excerpt }}</p>
+                                    {{-- <p>{{ $service->excerpt }}</p> --}}
+                                    <p>{{ Str::words($service->excerpt, 15, '...') }}</p>
                                     <a wire:navigate href="{{ route('service_detail', $service->slug) }}"
                                         class="btn custom-btn mt-2">Read More <i
                                             class="bi bi-chevron-right ms-1"></i></a>

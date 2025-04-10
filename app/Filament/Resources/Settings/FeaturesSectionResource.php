@@ -20,7 +20,7 @@ class FeaturesSectionResource extends Resource
     protected static ?string $model = FeaturesSection::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-duplicate';
-protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationGroup = 'Settings';
 
     public static function form(Form $form): Form
     {
@@ -72,7 +72,7 @@ protected static ?string $navigationGroup = 'Settings';
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),
                 ]),
-              
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Settings\FeaturesSection;
 use App\Models\Settings\PageHeading;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class AboutUs extends Component
@@ -11,6 +12,8 @@ class AboutUs extends Component
 
     public $pageHeading;
     public $featuresSections;
+
+
 
     public function mount()
     {

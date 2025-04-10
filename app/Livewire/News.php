@@ -10,15 +10,14 @@ class News extends Component
 {
 
     public $news;
- 
+
     public $pageHeading;
 
 
     public function mount()
     {
-             $this->pageHeading = PageHeading::firstOrFail();
+        $this->pageHeading = PageHeading::firstOrFail();
         $this->news = Post::where('is_active', 1)->get();
- 
     }
 
 

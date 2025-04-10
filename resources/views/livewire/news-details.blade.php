@@ -1,5 +1,8 @@
 <div class="news-details">
-
+    @section('meta')
+        <x-meta-tags title="{{$news->title}}" description="{{$news->meta_description}}" ogTitle="{{$news->meta_title}}" ogDescription="{{$news->meta_description}}"
+            ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
+    @endsection
     <section class="section position-relative blog-details-section grey-bg py-60">
         <div class="container">
             <div class="row">

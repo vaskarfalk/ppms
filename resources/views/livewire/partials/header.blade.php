@@ -15,14 +15,14 @@
                   <div class="mobile-menu-close">&times;</div>
                 </div>
                 <ul class="menu-main">                                                                           
-                  <li><a wire:navigate href="{{route('home_page')}}">Home</a></li> 
-                  <li><a wire:navigate href="{{route('about_us')}}">About</a></li>
-                  <li><a wire:navigate href="{{route('gallery')}}">Gallery</a></li>
-                  <li><a wire:navigate href="{{route('news')}}">News</a></li>
-                  <li><a wire:navigate href="{{route('what_we_do')}}">What We do</a></li>
-                  <li><a wire:navigate href="{{route('testimonials')}}">Testimonials</a></li>
-                  <li><a wire:navigate href="{{route('services')}}">Services</a></li>
-                  <li><a wire:navigate href="{{route('contact')}}">Contact</a></li>
+                  <li><a wire:navigate href="{{route('home_page')}}" class="{{ request()->routeIs('home_page') ? 'active' : '' }}">Home</a></li> 
+                  <li><a wire:navigate href="{{route('about_us')}}" class="{{ request()->routeIs('about_us') ? 'active' : '' }}">About</a></li>
+                  <li><a wire:navigate href="{{route('gallery')}}" class="{{ request()->routeIs('gallery') ? 'active' : '' }}">Gallery</a></li>
+                  <li><a wire:navigate href="{{route('news')}}" class="{{ request()->routeIs('news') ? 'active' : '' }}">News</a></li>
+                  <li><a wire:navigate href="{{route('what_we_do')}}" class="{{ request()->routeIs('what_we_do') ? 'active' : '' }}">What We do</a></li>
+                  <li><a wire:navigate href="{{route('testimonials')}}" class="{{ request()->routeIs('testimonials') ? 'active' : '' }}">Testimonials</a></li>
+                  <li><a wire:navigate href="{{route('services')}}" class="{{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
+                  <li><a wire:navigate href="{{route('contact')}}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
                 </ul>
               </nav>
       

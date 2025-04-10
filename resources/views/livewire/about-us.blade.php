@@ -1,4 +1,9 @@
 <div>
+  @section('meta')
+  <x-meta-tags title="About title" description="About description" ogTitle="OG title for About" ogDescription="OG desc for About"
+      ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
+@endsection
+
    <section class="section position-relative hero-section">
      <div class="hero-inner-banner-section d-block">
        <img src="{{asset('storage/'.$pageHeading->about_bg_image)}}" srcset="{{asset('storage/'.$pageHeading->about_bg_image)}} 300w, {{asset('storage/'.$pageHeading->about_bg_image)}} 600w, {{asset('storage/'.$pageHeading->about_bg_image)}} 900w, {{asset('storage/'.$pageHeading->about_bg_image)}} 1200w, {{asset('storage/'.$pageHeading->about_bg_image)}} 1500w" sizes="(max-width: 480px) 300px, (max-width: 768px) 600px, (max-width: 1024px) 900px, 1200px" alt="Image" class="w-100">
@@ -7,7 +12,7 @@
      <div class="hero-slider-caption-wrapper banner-caption hero-slider-caption-wrapper-alt">
        <div class="container h-100">
          <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
-           <div class="col-md-12">
+           <div class="col-lg-8">
              <div class="hero-content-inner text-center">
                <h3 class="text-uppercase text-white fs-4 medium-title mb-3 fw-semibold">{{$pageHeading->about_subtitle}}</h3>
                <h1>{{$pageHeading->about_title}}</h1>               

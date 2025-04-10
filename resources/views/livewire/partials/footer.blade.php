@@ -75,17 +75,18 @@
                 </div>
 
                 <div class="col-lg-2 col-md-2 col-12 mb-4 mb-lg-0 mb-md-0">
-                    <div class="footer-box clearfix">
+                    <div class="footer-box clearfix footer-menu">
                         <h4>Quick Links</h4>
                         <ul class="clearfix">
-                          <li><a wire:navigate href="{{route('home_page')}}">Home</a></li> 
-                          <li><a wire:navigate href="{{route('about_us')}}">About</a></li>
-                          <li><a wire:navigate href="{{route('gallery')}}">Gallery</a></li>
-                          <li><a wire:navigate href="{{route('news')}}">News</a></li>
-                          <li><a wire:navigate href="{{route('what_we_do')}}">What We do</a></li>
-                          <li><a wire:navigate href="{{route('testimonials')}}">Testimonials</a></li>
-                          <li><a wire:navigate href="{{route('services')}}">Services</a></li>
-                          <li><a wire:navigate href="{{route('contact')}}">Contact</a></li>
+                          <li><a wire:navigate href="{{route('home_page')}}" class="{{ request()->routeIs('home_page') ? 'active' : '' }}">Home</a></li> 
+                          <li><a wire:navigate href="{{route('about_us')}}" class="{{ request()->routeIs('about_us') ? 'active' : '' }}">About</a></li>
+                          <li><a wire:navigate href="{{route('gallery')}}" class="{{ request()->routeIs('gallery') ? 'active' : '' }}">Gallery</a></li>
+                          <li><a wire:navigate href="{{route('news')}}" class="{{ request()->routeIs('news') ? 'active' : '' }}">News</a></li>
+                          <li><a wire:navigate href="{{route('what_we_do')}}" class="{{ request()->routeIs('what_we_do') ? 'active' : '' }}">What We do</a></li>
+                          <li><a wire:navigate href="{{route('testimonials')}}" class="{{ request()->routeIs('testimonials') ? 'active' : '' }}">Testimonials</a></li>
+                          <li><a wire:navigate href="{{route('services')}}" class="{{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
+                          <li><a wire:navigate href="{{route('contact')}}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
+
                         </ul>
                     </div>
 
@@ -113,7 +114,7 @@
                     <div class="col-md-12">
                         <div
                             class="footer-bottom-box mt-4 py-4 border-top border-dark d-flex align-items-center justify-content-between">
-                            <p class="d-inline-block align-top mb-0">© <a href="#" class="">Plymouth
+                            <p class="d-inline-block align-top mb-0">© <a href="{{route('home_page')}}" class="">Plymouth
                                     Property Maintenance</a> 2025 | All Right Reserved.</p>
                             <ul class="d-inline-block align-top list-inline clearfix">
                                 <li><a wire:navigate href="{{route('terms_and_conditions')}}">Terms and Conditions</a></li>

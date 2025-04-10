@@ -4,14 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ $description ?? 'Page Description' }}">
-    <meta name="keywords" content="{{ $keywords ?? 'Page Keywords' }}">
-    <meta name="author" content="{{ $author ?? 'Author Name' }}">
     @hasSection('meta')
         @yield('meta')
     @endif
-
     <title>{{ $title ?? 'Plymouth Property Maintenance Services' }}</title>
+
 
     <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" sizes="36x36" />
 
@@ -26,7 +23,7 @@
         as="style" async>
 
 
-        <link rel="preload stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+    <link rel="preload stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
         as="style" async>
 
 
@@ -49,9 +46,9 @@
 
     <style>
         .loading-spinner span {
-          display: inline-block;
-          vertical-align: middle;
-          margin-top: 6px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: 6px;
         }
 
         .loading-spinner {
@@ -65,6 +62,14 @@
             height: 45px;
             border-radius: 5px;
 
+        }
+
+        .footer-menu .active {
+            color: #fff;
+        }
+
+        .header-item .menu-main .active {
+            color: #55ee09;
         }
     </style>
 
@@ -185,38 +190,38 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-<script>
-    Fancybox.bind('[data-fancybox]', {
-        //
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $(".list").click(function() {
-            const dataValue = $(this).attr("data-filter")
-            if (dataValue == "all-items") {
-                $(".image-item").show()
-            } else {
-                $(".image-item").not("." + dataValue).hide()
-                $(".image-item").filter("." + dataValue).show()
-            }
-        })
-    })
-    $(".list").click(function() {
-        $(this).addClass("active").siblings().removeClass("active")
-    })
-</script>
-
-<script src="{{ asset('assets/js/showmoreless.js') }}" type="text/javascript"></script>
-<script type="text/javascript">
-    $(document).ready(function(e) {
-        $('.show-less-div-1').myOwnLineShowMoreLess({
-            showLessLine: 3
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+        Fancybox.bind('[data-fancybox]', {
+            //
         });
-    });
-</script>
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $(".list").click(function() {
+                const dataValue = $(this).attr("data-filter")
+                if (dataValue == "all-items") {
+                    $(".image-item").show()
+                } else {
+                    $(".image-item").not("." + dataValue).hide()
+                    $(".image-item").filter("." + dataValue).show()
+                }
+            })
+        })
+        $(".list").click(function() {
+            $(this).addClass("active").siblings().removeClass("active")
+        })
+    </script>
+
+    <script src="{{ asset('assets/js/showmoreless.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $('.show-less-div-1').myOwnLineShowMoreLess({
+                showLessLine: 3
+            });
+        });
+    </script>
 
 
 

@@ -1,11 +1,17 @@
-@push('styles')
-    <style>
-        .cov-p p {
-            color: #fff;
-        }
-    </style>
-@endpush
-<div>
+<div class="homepage">
+    @section('meta')
+        <x-meta-tags title="Home Title" description="Home meta description" ogTitle="OG title for Home" ogDescription="OG desc for Home"
+            ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
+    @endsection
+
+
+    @push('styles')
+        <style>
+            .cov-p p {
+                color: #fff;
+            }
+        </style>
+    @endpush
     <section class="section position-relative hero-section">
         <div class="slider hero-slider" wire:ignore>
 

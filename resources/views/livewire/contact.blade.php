@@ -1,4 +1,9 @@
 <div class="contact">
+    @section('meta')
+    <x-meta-tags title="Contact title" description="Contact description" ogTitle="OG title for Contact" ogDescription="OG desc for Contact"
+        ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
+  @endsection
+
     <section class="section position-relative hero-section">
         <div class="hero-inner-banner-section d-block">
             <img src="{{ asset('storage/' . $pageHeading->contact_bg_image) }}"
@@ -10,7 +15,7 @@
         <div class="hero-slider-caption-wrapper banner-caption hero-slider-caption-wrapper-alt">
             <div class="container h-100">
                 <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
-                    <div class="col-md-12">
+                    <div class="col-lg-8">
                         <div class="hero-content-inner text-center">
                             <h3 class="text-uppercase text-white fs-4 medium-title mb-3 fw-semibold">
                                 {{ $pageHeading->contact_subtitle }}</h3>
@@ -159,7 +164,7 @@
                             <div class="d-flex flex-column flex-grow-1 col-12 featured-box mb-4 featured-box-alt">
                                 <a class="featured-box-wrapper" href="tel:+{{ $pageHeading->contact_number }}">
                                     <div class="featured-box-icon">
-                                        <img src="images/image-icon/phone-icon.png" alt="" class="img-fluid">
+                                        <img src="{{asset('assets/images/image-icon/phone-icon.png')}}" alt="" class="img-fluid">
                                     </div>
                                     <h4 class="text-dark">+{{ $pageHeading->contact_number }}</h4>
                                 </a>
@@ -168,7 +173,7 @@
                             <div class="d-flex flex-column flex-grow-1 col-12 featured-box mb-4 featured-box-alt">
                                 <a class="featured-box-wrapper" href="mailto:{{ $pageHeading->contact_email }}">
                                     <div class="featured-box-icon">
-                                        <img src="images/image-icon/email-icon.png" alt="" class="img-fluid">
+                                        <img src="{{asset('assets/images/image-icon/email-icon.png')}}" alt="" class="img-fluid">
                                     </div>
                                     <h4 class="text-dark">{{ $pageHeading->contact_email }}</h4>
                                 </a>
@@ -177,7 +182,7 @@
                             <div class="d-flex flex-column flex-grow-1 col-12 featured-box mb-4 featured-box-alt">
                                 <a class="featured-box-wrapper" href="javascript:void(0);">
                                     <div class="featured-box-icon">
-                                        <img src="images/image-icon/location-icon.png" alt=""
+                                        <img src="{{asset('assets/images/image-icon/location-icon.png')}}" alt=""
                                             class="img-fluid">
                                     </div>
                                     <h4 class="text-dark">{!! $pageHeading->contact_address !!}</h4>

@@ -60,7 +60,7 @@ class PageHeadingResource extends Resource
                                 Forms\Components\Grid::make()
                                     ->schema([
                                         Forms\Components\TextInput::make('why_title')
-                                        ->label('Why Choose Title')
+                                            ->label('Why Choose Title')
                                             ->maxLength(255)
                                             ->default(null)
                                             ->columnSpanFull(),
@@ -84,7 +84,7 @@ class PageHeadingResource extends Resource
                                     ->label('Who We Are Subtitle')
                                     ->default(null),
                                 Forms\Components\RichEditor::make('who_description')
-                                ->label('Who We Are Description')
+                                    ->label('Who We Are Description')
                                     ->columnSpanFull(),
 
                             ]),
@@ -344,7 +344,7 @@ class PageHeadingResource extends Resource
                             ]),
 
 
-                
+
 
 
 
@@ -354,21 +354,21 @@ class PageHeadingResource extends Resource
                 Group::make()
                     ->schema([
                         Section::make('Social Media')
-                        ->schema([
-                            Forms\Components\Grid::make(3)
                             ->schema([
-                            Forms\Components\TextInput::make('facebook_link')
-                                ->maxLength(255)
-                                ->default(null),
-                            Forms\Components\TextInput::make('instagram_link')
-                                ->maxLength(255)
-                                ->default(null),
-                            Forms\Components\TextInput::make('twitter_link')
-                                ->maxLength(255)
-                                ->default(null),
+                                Forms\Components\Grid::make(3)
+                                    ->schema([
+                                        Forms\Components\TextInput::make('facebook_link')
+                                            ->maxLength(255)
+                                            ->default(null),
+                                        Forms\Components\TextInput::make('instagram_link')
+                                            ->maxLength(255)
+                                            ->default(null),
+                                        Forms\Components\TextInput::make('twitter_link')
+                                            ->maxLength(255)
+                                            ->default(null),
 
-                                ])
-                        ]),
+                                    ])
+                            ]),
 
                         Section::make('Contact Page')
                             ->schema([
