@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\ContactFormSubmission;
+use App\Models\Seo\SeoPages;
 use App\Models\Service;
 use App\Models\Settings\FeaturesSection;
 use App\Models\Settings\PageHeading;
@@ -25,11 +26,9 @@ class HomePage extends Component
     public $featuresSections;
     public $message;
     public $testimonials;
-    public $success = false;
+    // public $success = false;
     public $pageHeading;
-
-
-
+    public $seopages;
     protected $rules = [
         'fname' => 'required|string|min:3|max:255',
         'lname' => 'required|string|min:3|max:255',
@@ -38,10 +37,6 @@ class HomePage extends Component
         'selectedService' => 'required',
         'message' => 'required|string|min:5',
     ];
-
-
-
-
 
     protected function messages()
     {
@@ -81,6 +76,7 @@ class HomePage extends Component
         $this->testimonials = Testimonial::where('is_active', 1)->get();
         $this->featuresSections = FeaturesSection::all();
         $this->pageHeading = PageHeading::firstOrFail();
+        $this->seopages = SeoPages::firstOrFail();
     }
 
 
@@ -118,7 +114,8 @@ class HomePage extends Component
         // Reset the form fields
         // $this->reset();
         $this->reset(['fname', 'lname', 'email', 'phone', 'selectedService', 'message']);
-        $this->success = true;
+        // $this->success = true;
+        return redirect()->route('thank_you');
     }
 
     public function render()

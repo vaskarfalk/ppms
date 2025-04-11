@@ -1,4 +1,9 @@
 <div class="privacy-policy">
+    @section('meta')
+    <x-meta-tags title="{{ $seopages->policy_meta_title }}" description="{{ $seopages->policy_meta_description }}"
+        ogTitle="{{ $seopages->policy_meta_title }}" ogDescription="{{ $seopages->policy_meta_description }}"
+        ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
+@endsection
     <section class="section position-relative services-section py-60">
         <div class="container">
             <div class="row">

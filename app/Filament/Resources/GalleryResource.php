@@ -40,11 +40,10 @@ class GalleryResource extends Resource
                                     ->maxLength(255)
                                     ->unique(Gallery::class, 'slug', ignoreRecord: true),
 
-                                Forms\Components\FileUpload::make('image')
-                                    ->image()
-                                    ->label('Featured Image')
-                                    ->directory('gallery')
-                                    ->required(),
+                                // Forms\Components\FileUpload::make('image')
+                                //     ->image()
+                                //     ->label('Featured Image')
+                                //     ->directory('gallery'),
                                 Forms\Components\Toggle::make('is_active')
                                     ->required()
                                     ->default(true),
@@ -78,7 +77,7 @@ class GalleryResource extends Resource
                 ->getStateUsing(fn ($rowLoop, $record) => $rowLoop->iteration)
                 ->sortable(false),
 
-                Tables\Columns\ImageColumn::make('image'),
+                // Tables\Columns\ImageColumn::make('image'),
 
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()

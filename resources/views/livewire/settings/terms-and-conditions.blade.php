@@ -1,4 +1,9 @@
 <div class="terms-and-conditions">
+    @section('meta')
+    <x-meta-tags title="{{ $seopages->terms_meta_title }}" description="{{ $seopages->terms_meta_description }}"
+        ogTitle="{{ $seopages->terms_meta_title }}" ogDescription="{{ $seopages->terms_meta_description }}"
+        ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
+@endsection
     <section class="section position-relative services-section py-60">
         <div class="container">
             <div class="row">

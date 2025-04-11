@@ -1,4 +1,9 @@
 <div class="services-details">
+    @section('meta')
+    <x-meta-tags title="{{ $service->meta_title }}" description="{{ $service->meta_description }}"
+        ogTitle="{{ $service->meta_title }}" ogDescription="{{ $service->meta_description }}"
+        ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
+@endsection
     <section class="section position-relative hero-section">
         <div class="hero-inner-banner-section d-block">
 
@@ -47,7 +52,7 @@
                     </div>
 
 
-                    <div class="col-lg-5 col-md-12 d-none d-lg-block d-md-block">
+                    <div class="col-lg-5 col-md-12 d-none d-lg-block d-md-block" id="online-form">
 
                         <div class="form-wrapper">
                             <div class="form-wrapper-heading">
@@ -55,7 +60,7 @@
                                 <p>{{ $pageHeading->contact_form_subtitle }}</p>
                             </div>
 
-                            <div class="form-wrapper-inner">
+                            <div class="form-wrapper-inner" >
 
                                 <form wire:submit="send">
                                     <div class="row">
@@ -128,7 +133,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 col-12 mb-4">
-                                            <label for="Textarea" class="form-label text-dark fw-semibold">Describe Your Problem</label>
+                                            <label for="Textarea" class="form-label text-dark fw-semibold">Describe Your
+                                                Problem</label>
                                             <textarea class="form-control" wire:model="message" placeholder="Your Message" id="Textarea" rows="3"></textarea>
                                             @error('message')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -148,7 +154,7 @@
                                         </div>
                                     </div>
                                 </form>
-                                @if ($success)
+                                {{-- @if ($success)
                                     <div class="toast show align-items-center mx-auto  text-bg-success border-0 my-3"
                                         role="alert" aria-live="assertive" aria-atomic="true">
                                         <div class="d-flex ">
@@ -159,7 +165,7 @@
                                                 data-bs-dismiss="toast" aria-label="Close"></button>
                                         </div>
                                     </div>
-                                @endif
+                                @endif --}}
                             </div>
 
                         </div>
@@ -273,23 +279,7 @@
         </div>
     </section>
 
-    <section class="section position-relative help-section d-flex align-items-center">
-        <div class="container h-100">
-            <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
-                <div class="col-md-12">
-                    <div class="d-lg-flex justify-content-between align-items-center">
-                        <div class="heading">
-                            <h2 class="text-white">{{ $pageHeading->help_title ?? null }}</h2>
-                        </div>
-                        <a wire:navigate href="{{ $pageHeading->btn_5_url ?? null }}"
-                            class="btn custom-btn black-bg-btn">
-                            {{ $pageHeading->btn_5 ?? null }}</a>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
 </div>

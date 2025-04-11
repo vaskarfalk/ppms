@@ -1,4 +1,10 @@
 <div class="gallery">
+    @section('meta')
+        <x-meta-tags title="{{ $seopages->gallery_meta_title }}" description="{{ $seopages->gallery_meta_description }}"
+            ogTitle="{{ $seopages->gallery_meta_title }}" ogDescription="{{ $seopages->gallery_meta_description }}"
+            ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
+    @endsection
+
     <section class="section position-relative hero-section">
         <div class="hero-inner-banner-section d-block">
             <img src="{{ asset('storage/' . $pageHeading->gallery_bg_image) }}"
@@ -10,7 +16,7 @@
         <div class="hero-slider-caption-wrapper banner-caption hero-slider-caption-wrapper-alt">
             <div class="container h-100">
                 <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
-                    <div class="col-md-12">
+                    <div class="col-lg-8">
                         <div class="hero-content-inner text-center">
                             <h3 class="text-uppercase text-white fs-4 medium-title mb-3 fw-semibold">
                                 {{ $pageHeading->gallery_subtitle }}</h3>
@@ -49,8 +55,8 @@
                                             <a data-fancybox="gallery"
                                                 data-src="{{ asset('storage/' . $image['image']) }}"
                                                 data-caption="{{ $gallery->title }}">
-                                                <img src="{{ asset('storage/' . $image['image']) }}" alt="{{ $gallery->title }}"
-                                                    class="img-fluid">
+                                                <img src="{{ asset('storage/' . $image['image']) }}"
+                                                    alt="{{ $gallery->title }}" class="img-fluid">
                                             </a>
                                         </div>
                                     @endforeach
@@ -68,21 +74,6 @@
         </div>
     </section>
 
-    <section class="section position-relative help-section d-flex align-items-center">
-        <div class="container h-100">
-            <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
-                <div class="col-md-12">
-                    <div class="d-lg-flex justify-content-between align-items-center">
-                        <div class="heading">
-                            <h2 class="text-white">{{ $pageHeading->help_title ?? null }}</h2>
-                        </div>
-                        <a wire:navigate href="{{ $pageHeading->btn_5_url ?? null }}"
-                            class="btn custom-btn black-bg-btn">
-                            {{ $pageHeading->btn_5 ?? null }}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
 </div>

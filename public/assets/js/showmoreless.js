@@ -20,7 +20,7 @@
             }
             let h = parseInt(r),
                 p = parseInt(e.settings.showLessLine);
-            console.log(h, p);
+         
             let c = e.settings.lessAtInitial ? "less" : "more";
             e.settings.lessAtInitial ? (s.css({
                 "max-height": h * p + "px",
@@ -51,7 +51,7 @@
             })), i.on("click", function() {
                 "less" == c ? (c = "more", s.css({
                     position: "relative",
-                    overflow: "auto",
+                    overflow: "inherit",
                     "max-height": "none"
                 }), i.html(e.settings.showLessText), i.attr("class", "show-more-less-handler"), i.attr("style", " background: rgb(255,255,255);background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 17%, rgba(255,255,255,1) 100%); "), i.css({
                     position: "static",

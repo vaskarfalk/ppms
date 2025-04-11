@@ -12,6 +12,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Kahusoftware\FilamentCkeditorField\CKEditor;
 
@@ -83,11 +84,24 @@ class TermsAndConditionsResource extends Resource
         ];
     }
 
+    public static function canCreate(): bool
+    {
+        return false;
+    }
+
+
+
+    public static function canDelete(Model $record): bool
+    {
+        return false; // Disable the "Delete" functionality
+    }
+
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListTermsAndConditions::route('/'),
-            'create' => Pages\CreateTermsAndConditions::route('/create'),
+            // 'create' => Pages\CreateTermsAndConditions::route('/create'),
             'edit' => Pages\EditTermsAndConditions::route('/{record}/edit'),
         ];
     }

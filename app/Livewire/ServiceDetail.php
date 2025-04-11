@@ -24,7 +24,7 @@ class ServiceDetail extends Component
     public $selectedService;
     public $pageHeading;
     public $testimonials;
-    public $success = false;
+    // public $success = false;
     protected $rules = [
         'fname' => 'required|string|min:3|max:255',
         'lname' => 'required|string|min:3|max:255',
@@ -112,9 +112,9 @@ class ServiceDetail extends Component
         // Reset the form fields
         // $this->reset();
         $this->reset(['fname', 'lname', 'email', 'phone', 'selectedService', 'message']);
-        $this->success = true;
+        // $this->success = true;
 
-        $this->service = Service::where('slug', $this->service->slug)->firstOrFail();
+        return redirect()->route('thank_you');
     }
 
 

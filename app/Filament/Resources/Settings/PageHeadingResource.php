@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\Settings;
 
 use App\Filament\Resources\Settings\PageHeadingResource\Pages;
-use App\Filament\Resources\Settings\PageHeadingResource\RelationManagers;
 use App\Models\Settings\PageHeading;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
@@ -12,10 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Forms\Components\Group;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Http\RedirectResponse;
 
 class PageHeadingResource extends Resource
 {
@@ -322,9 +318,9 @@ class PageHeadingResource extends Resource
                                 Forms\Components\TextInput::make('news_subtitle')
                                     ->maxLength(255)
                                     ->default(null),
-                                Forms\Components\RichEditor::make('news_description')
-                                    ->columnSpanFull()
-                                    ->fileAttachmentsDirectory('page_heading'),
+                                Forms\Components\Textarea::make('news_description')
+                                    ->columnSpanFull(),
+                           
 
                             ]),
 

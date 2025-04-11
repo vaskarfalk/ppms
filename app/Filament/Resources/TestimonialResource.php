@@ -45,11 +45,11 @@ class TestimonialResource extends Resource
                                 Forms\Components\Toggle::make('is_active')
                                     ->required()
                                     ->default(true),
-                                Forms\Components\FileUpload::make('profile_image')
-                                    ->image()
-                                    ->required()
-                                    ->directory('testimonials')
-                                    ->label('Profile Image'),
+                                // Forms\Components\FileUpload::make('profile_image')
+                                //     ->image()
+                                   
+                                //     ->directory('testimonials')
+                                //     ->label('Profile Image'),
 
                                 Forms\Components\Textarea::make('description')
                                     ->required(),
@@ -64,7 +64,7 @@ class TestimonialResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('profile_image'),
+                // Tables\Columns\ImageColumn::make('profile_image'),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('company_name')

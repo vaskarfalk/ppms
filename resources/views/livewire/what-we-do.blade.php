@@ -1,4 +1,9 @@
 <div class="what-we-do">
+    @section('meta')
+        <x-meta-tags title="{{ $seopages->whatwedo_meta_title }}" description="{{ $seopages->whatwedo_meta_description }}"
+            ogTitle="{{ $seopages->whatwedo_meta_title }}" ogDescription="{{ $seopages->whatwedo_meta_description }}"
+            ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
+    @endsection
     <section class="section position-relative py-60 service-details-section">
         <div class="container">
             <div class="row">
@@ -42,7 +47,7 @@
                                     <h2>{{ $whats->title }}</h2>
                                 </div>
                                 <p>{!! $whats->description !!}</p>
-                                <a href="{{ $whats->url }}"
+                                <a wire:navigate href="{{ $whats->url }}"
                                     class="btn custom-btn mt-4">{{ $whats->button_name }}</a>
                             </div>
                         </div>
@@ -57,21 +62,6 @@
     @endif
 
 
-    <section class="section position-relative help-section d-flex align-items-center">
-        <div class="container h-100">
-            <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
-                <div class="col-md-12">
-                    <div class="d-lg-flex justify-content-between align-items-center">
-                        <div class="heading">
-                          <h2 class="text-white">{{ $pageHeading->help_title ?? null }}</h2>
-                        </div>
-                        <a wire:navigate href="{{ $pageHeading->btn_5_url ?? null }}"
-                          class="btn custom-btn black-bg-btn">
-                          {{ $pageHeading->btn_5 ?? null }}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
 </div>

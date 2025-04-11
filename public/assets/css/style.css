@@ -2,7 +2,7 @@ html {
   font-family:sans-serif;
   -ms-text-size-adjust:100%;
   -webkit-text-size-adjust:100%;
-  -webkit-tap-highlight-color:transparent
+  -webkit-tap-highlight-color:transparent;
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
   box-sizing:border-box;
@@ -658,7 +658,8 @@ section {
   right: 15px;
   display: none;
   text-indent: -9999px;
-  background: url(../images/icons/circle-arrow.svg) no-repeat;
+  /* background: url(../images/icons/circle-arrow.svg) no-repeat; */
+  background: url(../images/uparrow.gif) no-repeat;
   background-size: auto;
   z-index: 20;
   background-size: 100% auto;
@@ -1095,4 +1096,37 @@ ul.list-inline li a:hover {
 }
 .testimonial-box-wrapper-alt{
   min-height: inherit;
+}
+
+
+/* ===========================  new css added  ==========================*/
+.loading-spinner span {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 6px;
+}
+
+.loading-spinner {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: #1e9f40;
+  text-align: center;
+  width: 90%;
+  height: 45px;
+  border-radius: 5px;
+
+}
+.cov-p p {
+  color: #fff;
+}
+.footer-menu .active {
+  color: #fff;
+}
+.thank-you h1{
+  color: #1e9f40;
+}
+.header-item .menu-main .active {
+  color: #55ee09;
 }

@@ -12,6 +12,7 @@ use App\Livewire\Services;
 use App\Livewire\Settings\PrivacyPolicy;
 use App\Livewire\Settings\TermsAndConditions;
 use App\Livewire\Testimonials;
+use App\Livewire\ThankYou;
 use App\Livewire\WhatWeDo;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,5 @@ Route::get('services/{service}', ServiceDetail::class)->name('service_detail');
 Route::get('contact', Contact::class)->name('contact');
 Route::get('privacy-policy', PrivacyPolicy::class)->name('privacy_policies');
 Route::get('terms-and-conditions', TermsAndConditions::class)->name('terms_and_conditions');
+Route::get('thank-you', ThankYou::class)->name('thank_you');
 Route::get('/{any}', NotFoundPage::class)->where('any', '.*');

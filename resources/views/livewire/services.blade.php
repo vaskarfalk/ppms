@@ -1,5 +1,9 @@
 <div class="services">
-
+    @section('meta')
+        <x-meta-tags title="{{ $seopages->services_meta_title }}" description="{{ $seopages->services_meta_description }}"
+            ogTitle="{{ $seopages->services_meta_title }}" ogDescription="{{ $seopages->services_meta_description }}"
+            ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
+    @endsection
     <section class="section position-relative services-section py-60">
         <div class="container">
             <div class="row">
@@ -42,21 +46,6 @@
         </div>
     </section>
 
-    <section class="section position-relative help-section d-flex align-items-center">
-        <div class="container h-100">
-            <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
-                <div class="col-md-12">
-                    <div class="d-lg-flex justify-content-between align-items-center">
-                        <div class="heading">
-                            <h2 class="text-white">{{ $pageHeading->help_title ?? null }}</h2>
-                        </div>
-                        <a wire:navigate href="{{ $pageHeading->btn_5_url ?? null }}"
-                            class="btn custom-btn black-bg-btn">
-                            {{ $pageHeading->btn_5 ?? null }}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
 </div>

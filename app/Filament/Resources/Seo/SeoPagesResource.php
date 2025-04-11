@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\Seo;
 
 use App\Filament\Resources\Seo\SeoPagesResource\Pages;
-use App\Filament\Resources\Seo\SeoPagesResource\RelationManagers;
 use App\Models\Seo\SeoPages;
 use Filament\Forms;
 use Filament\Forms\Components\Group;
@@ -12,13 +11,11 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Database\Eloquent\Model;
 
 class SeoPagesResource extends Resource
 {
     protected static ?string $model = SeoPages::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-presentation-chart-line';
     protected static ?string $navigationGroup = 'Seo';
     public static function form(Form $form): Form
@@ -174,6 +171,19 @@ class SeoPagesResource extends Resource
             ]);
     }
 
+    public static function canCreate(): bool
+    {
+        return false;
+    }
+
+
+
+    public static function canDelete(Model $record): bool
+    {
+        return false; // Disable the "Delete" functionality
+    }
+
+
     public static function getRelations(): array
     {
         return [
@@ -185,7 +195,7 @@ class SeoPagesResource extends Resource
     {
         return [
             'index' => Pages\ListSeoPages::route('/'),
-            'create' => Pages\CreateSeoPages::route('/create'),
+            // 'create' => Pages\CreateSeoPages::route('/create'),
             'edit' => Pages\EditSeoPages::route('/{record}/edit'),
         ];
     }

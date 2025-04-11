@@ -1,9 +1,9 @@
 <div class="contact">
     @section('meta')
-    <x-meta-tags title="Contact title" description="Contact description" ogTitle="OG title for Contact" ogDescription="OG desc for Contact"
-        ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
-  @endsection
-
+        <x-meta-tags title="{{ $seopages->contact_meta_title }}" description="{{ $seopages->contact_meta_description }}"
+            ogTitle="{{ $seopages->contact_meta_title }}" ogDescription="{{ $seopages->contact_meta_description }}"
+            ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
+    @endsection
     <section class="section position-relative hero-section">
         <div class="hero-inner-banner-section d-block">
             <img src="{{ asset('storage/' . $pageHeading->contact_bg_image) }}"
@@ -30,8 +30,8 @@
 
     <section class="section position-relative who-are-section-alt my-60">
         <div class="container">
-            <div class="row align-items-lg-center">
-                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0 mb-md-0 order-lg-2 order-md-2 order-1">
+            <div class="row align-items-lg-center" >
+                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0 mb-md-0 order-lg-2 order-md-2 order-1" id="online-form">
 
                     <div class="form-wrapper shadow">
 
@@ -40,7 +40,7 @@
                             <p>{{ $pageHeading->contact_form_subtitle }}</p>
                         </div>
 
-                        <div class="form-wrapper-inner">
+                        <div class="form-wrapper-inner" >
 
                             <form wire:submit="send">
                                 <div class="row">
@@ -132,7 +132,7 @@
                                     </div>
                                 </div>
                             </form>
-                            @if ($success)
+                            {{-- @if ($success)
                                 <div class="toast show align-items-center mx-auto  text-bg-success border-0 my-3"
                                     role="alert" aria-live="assertive" aria-atomic="true">
                                     <div class="d-flex ">
@@ -143,7 +143,7 @@
                                             data-bs-dismiss="toast" aria-label="Close"></button>
                                     </div>
                                 </div>
-                            @endif
+                            @endif --}}
                         </div>
 
                     </div>
@@ -162,11 +162,11 @@
                         <div class="row mt-5">
 
                             <div class="d-flex flex-column flex-grow-1 col-12 featured-box mb-4 featured-box-alt">
-                                <a class="featured-box-wrapper" href="tel:+{{ $pageHeading->contact_number }}">
+                                <a class="featured-box-wrapper" href="tel:{{ $pageHeading->contact_number }}">
                                     <div class="featured-box-icon">
                                         <img src="{{asset('assets/images/image-icon/phone-icon.png')}}" alt="" class="img-fluid">
                                     </div>
-                                    <h4 class="text-dark">+{{ $pageHeading->contact_number }}</h4>
+                                    <h4 class="text-dark">{{ $pageHeading->contact_number }}</h4>
                                 </a>
                             </div>
 
@@ -180,7 +180,7 @@
                             </div>
 
                             <div class="d-flex flex-column flex-grow-1 col-12 featured-box mb-4 featured-box-alt">
-                                <a class="featured-box-wrapper" href="javascript:void(0);">
+                                <a class="featured-box-wrapper" >
                                     <div class="featured-box-icon">
                                         <img src="{{asset('assets/images/image-icon/location-icon.png')}}" alt=""
                                             class="img-fluid">
@@ -208,21 +208,6 @@
         {!! $pageHeading->contact_maps !!}
     </section>
 
-    <section class="section position-relative help-section d-flex align-items-center">
-        <div class="container h-100">
-            <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
-                <div class="col-md-12">
-                    <div class="d-lg-flex justify-content-between align-items-center">
-                        <div class="heading">
-                            <h2 class="text-white">{{ $pageHeading->help_title ?? null }}</h2>
-                        </div>
-                        <a wire:navigate href="{{ $pageHeading->btn_5_url ?? null }}"
-                            class="btn custom-btn black-bg-btn">
-                            {{ $pageHeading->btn_5 ?? null }}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+ 
 
 </div>

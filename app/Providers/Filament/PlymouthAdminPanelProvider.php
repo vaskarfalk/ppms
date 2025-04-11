@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Widgets\ContactSubmissionsTable;
+use App\Filament\Widgets\TotalServicesWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -32,6 +34,7 @@ class PlymouthAdminPanelProvider extends PanelProvider
                 'primary' =>  '#1e9f40',
 
             ])
+            ->brandLogoHeight('auto')
             ->brandLogo(asset('assets/images/logo.png'))
             ->darkModeBrandLogo(asset('assets/images/logo-2.png'))
             ->favicon(asset('assets/images/favicon.png'))
@@ -44,8 +47,9 @@ class PlymouthAdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                TotalServicesWidget::class,
+                ContactSubmissionsTable::class,
+
             ])
             ->middleware([
                 EncryptCookies::class,

@@ -1,4 +1,32 @@
 <div>
+    <section class="section position-relative help-section d-flex align-items-center">
+        <div class="container h-100">
+            <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
+                <div class="col-md-12">
+                    <div class="d-lg-flex justify-content-between align-items-center">
+                        <div class="heading">
+                            <h2 class="text-white">{{ $pageHeading->help_title ?? null }}</h2>
+                        </div>
+
+                        {{-- <a wire:navigate href="{{ $pageHeading->btn_5_url ?? null }}"
+                            class="btn custom-btn black-bg-btn">
+                            {{ $pageHeading->btn_5 ?? null }}</a> --}}
+
+                            @if (request()->routeIs('service_detail'))
+                            <a href="{{ url(request()->path()) }}#online-form"
+                                class="btn custom-btn black-bg-btn"> {{ $pageHeading->btn_5 ?? null }}</a>
+                        @elseif (request()->routeIs('home_page'))
+                            <a href="{{ route('home_page') }}#online-form" class="btn custom-btn black-bg-btn"> {{ $pageHeading->btn_5 ?? null }}</a>
+                        @else
+                            <a href="{{ $pageHeading->btn_5_url ?? null }}" class="btn custom-btn black-bg-btn"> {{ $pageHeading->btn_5 ?? null }}</a>
+                        @endif
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -8,7 +36,7 @@
                                 alt="Logo" class="img-fluid"></a>
                     </div>
                     <div class="social-icon d-flex justify-content-lg-start align-items-center mt-4">
-                        <a href="{{$pageHeading->facebook_link}}" class="d-flex justify-content-center align-items-center me-3 facebook">
+                        <a target="_blank" href="{{$pageHeading->facebook_link}}" class="d-flex justify-content-center align-items-center me-3 facebook">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
                                 viewBox="0 0 155.139 155.139" style="enable-background:new 0 0 512 512"
@@ -21,7 +49,7 @@
                                 </g>
                             </svg>
                         </a>
-                        <a href="{{$pageHeading->instagram_link}}" class="d-flex justify-content-center align-items-center me-3">
+                        <a target="_blank" href="{{$pageHeading->instagram_link}}" class="d-flex justify-content-center align-items-center me-3">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
                                 viewBox="0 0 409.61 409.61" style="enable-background:new 0 0 512 512"
@@ -39,7 +67,7 @@
                             </svg>
                         </a>
 
-                        <a href="{{$pageHeading->twitter_link}}" class="d-flex justify-content-center align-items-center">
+                        <a target="_blank" href="{{$pageHeading->twitter_link}}" class="d-flex justify-content-center align-items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
                                 viewBox="0 0 1226.37 1226.37" style="enable-background:new 0 0 512 512"
@@ -98,7 +126,7 @@
                         <p class="mb-4">{!! $pageHeading->contact_address !!}</p>
                         <a href="mailto:{{$pageHeading->contact_email}}"
                             class="mb-2 d-lg-block">{{$pageHeading->contact_email}}</a>
-                        <a href="tel:+{{$pageHeading->contact_number}}" class="mb-2">+{{$pageHeading->contact_number}}</a>
+                        <a href="tel:{{$pageHeading->contact_number}}" class="mb-2">{{$pageHeading->contact_number}}</a>
 
                     </div>
 
@@ -116,9 +144,9 @@
                             class="footer-bottom-box mt-4 py-4 border-top border-dark d-flex align-items-center justify-content-between">
                             <p class="d-inline-block align-top mb-0">© <a href="{{route('home_page')}}" class="">Plymouth
                                     Property Maintenance</a> 2025 | All Right Reserved.</p>
-                            <ul class="d-inline-block align-top list-inline clearfix">
-                                <li><a wire:navigate href="{{route('terms_and_conditions')}}">Terms and Conditions</a></li>
-                                <li><a wire:navigate href="{{route('privacy_policies')}}">Privacy Policy</a></li>
+                            <ul class="d-inline-block align-top list-inline clearfix footer-menu">
+                                <li><a wire:navigate href="{{route('terms_and_conditions')}}" class="{{ request()->routeIs('terms_and_conditions') ? 'active' : '' }}">Terms and Conditions</a></li>
+                                <li><a wire:navigate href="{{route('privacy_policies')}}" class="{{ request()->routeIs('privacy_policies') ? 'active' : '' }}">Privacy Policy</a></li>
                             </ul>
 
                         </div>
@@ -127,6 +155,4 @@
             </div>
         </div>
     </footer>
-
-
 </div>

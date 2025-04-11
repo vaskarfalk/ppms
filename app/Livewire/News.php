@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Blog\Post;
+use App\Models\Seo\SeoPages;
 use App\Models\Settings\PageHeading;
 use Livewire\Component;
 
@@ -10,7 +11,7 @@ class News extends Component
 {
 
     public $news;
-
+    public $seopages;
     public $pageHeading;
 
 
@@ -18,6 +19,7 @@ class News extends Component
     {
         $this->pageHeading = PageHeading::firstOrFail();
         $this->news = Post::where('is_active', 1)->get();
+        $this->seopages = SeoPages::firstOrFail();
     }
 
 

@@ -1,20 +1,11 @@
 <div class="homepage">
     @section('meta')
-        <x-meta-tags title="Home Title" description="Home meta description" ogTitle="OG title for Home" ogDescription="OG desc for Home"
+        <x-meta-tags title="{{ $seopages->home_meta_title }}" description="{{ $seopages->home_meta_description }}"
+            ogTitle="{{ $seopages->home_meta_title }}" ogDescription="{{ $seopages->home_meta_description }}"
             ogUrl="{{ url()->current() }}" canonical="{{ url()->current() }}" />
     @endsection
-
-
-    @push('styles')
-        <style>
-            .cov-p p {
-                color: #fff;
-            }
-        </style>
-    @endpush
     <section class="section position-relative hero-section">
         <div class="slider hero-slider" wire:ignore>
-
             @foreach ($pageHeading->web_banner as $web)
                 <div class="slider-item">
                     <img src="{{ asset('storage/' . $web['image']) }}"
@@ -29,30 +20,6 @@
                         alt="{{ $web['alt'] ?? 'Banner Image' }}" class="img-fluid">
                 </div>
             @endforeach
-
-
-
-
-
-
-            {{-- <div class="slider-item">
-                <img src="{{ asset('assets/images/hero-slider-image.jpg') }}"
-                    srcset="{{ asset('assets/images/hero-slider-image-768.jpg') }} 300w, {{ asset('assets/images/hero-slider-image-768.jpg') }} 600w, {{ asset('assets/images/hero-slider-image.jpg') }} 900w, {{ asset('assets/images/hero-slider-image.jpg') }} 1200w, {{ asset('assets/images/hero-slider-image.jpg') }} 1500w"
-                    sizes="(max-width: 480px) 300px, (max-width: 768px) 600px, (max-width: 1024px) 900px, 1200px"
-                    alt="Responsive Example Image">
-            </div>
-
-
-
-            <div class="slider-item">
-                <img src="{{ asset('assets/images/hero-slider-image.jpg') }}"
-                    srcset="{{ asset('assets/images/hero-slider-image-768.jpg') }} 300w, {{ asset('assets/images/hero-slider-image-768.jpg') }} 600w, {{ asset('assets/images/hero-slider-image.jpg') }} 900w, {{ asset('assets/images/hero-slider-image.jpg') }} 1200w, {{ asset('assets/images/hero-slider-image.jpg') }} 1500w"
-                    sizes="(max-width: 480px) 300px, (max-width: 768px) 600px, (max-width: 1024px) 900px, 1200px"
-                    alt="Responsive Example Image">
-            </div> --}}
-
-
-
         </div>
         <div class="hero-slider-caption-wrapper banner-caption">
             <div class="container h-100">
@@ -71,7 +38,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-12 d-none d-lg-block d-md-block">
+                    <div class="col-lg-5 col-md-12 d-none d-lg-block d-md-block" id="online-form">
 
                         <div class="form-wrapper">
                             <div class="form-wrapper-heading">
@@ -79,7 +46,7 @@
                                 <p>{{ $pageHeading->contact_form_subtitle }}</p>
                             </div>
 
-                            <div class="form-wrapper-inner">
+                            <div class="form-wrapper-inner" >
 
                                 <form wire:submit="send">
                                     <div class="row">
@@ -173,7 +140,7 @@
                                         </div>
                                     </div>
                                 </form>
-                                @if ($success)
+{{--  @if ($success)
                                     <div class="toast show align-items-center mx-auto  text-bg-success border-0 my-3"
                                         role="alert" aria-live="assertive" aria-atomic="true">
                                         <div class="d-flex ">
@@ -184,7 +151,8 @@
                                                 data-bs-dismiss="toast" aria-label="Close"></button>
                                         </div>
                                     </div>
-                                @endif
+                                @endif --}}
+
                             </div>
 
                         </div>
@@ -341,7 +309,7 @@
 
                         {!! $pageHeading->covered_description ?? '' !!}
                     </div>
-                    <a wire:navigate href="{{ $pageHeading->btn_3_url }}"
+                    <a href="{{ $pageHeading->btn_3_url }}"
                         class="btn custom-btn mt-4">{{ $pageHeading->btn_3 ?? null }}</a>
                 </div>
             </div>
@@ -409,22 +377,6 @@
         </div>
     </section>
 
-    <section class="section position-relative help-section d-flex align-items-center">
-        <div class="container h-100">
-            <div class="row h-100 d-flex justify-content-center justify-content-lg-center align-items-center">
-                <div class="col-md-12">
-                    <div class="d-lg-flex justify-content-between align-items-center">
-                        <div class="heading">
-                            <h2 class="text-white">{{ $pageHeading->help_title ?? null }}</h2>
-                        </div>
-                        <a wire:navigate href="{{ $pageHeading->btn_5_url ?? null }}"
-                            class="btn custom-btn black-bg-btn">
-                            {{ $pageHeading->btn_5 ?? null }}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
 
