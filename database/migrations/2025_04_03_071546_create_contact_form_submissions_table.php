@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('lname')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->longText('services')->nullable();
+            $table->string('services')->nullable();
             $table->longText('message')->nullable();
             $table->timestamps();
         });

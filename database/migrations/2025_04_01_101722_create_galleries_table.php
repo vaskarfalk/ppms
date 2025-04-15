@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('title')->nullable();
+            $table->string('slug')->unique()->nullable();
             $table->boolean('is_active')->default(true);
             $table->string('image')->nullable(); 
-            $table->json('G_images')->default(json_encode([]));
+            $table->json('G_images')->nullable();
             $table->timestamps();
         });
     }

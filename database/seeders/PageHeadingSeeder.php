@@ -15,18 +15,18 @@ class PageHeadingSeeder extends Seeder
     {
         //
         PageHeading::firstOrCreate([
-            'id' => 1, // Ensure only one record exists
+            'id' => 1, 
         ], [
             'title' => 'Default Title',
             'description' => 'Default description.',
-            'web_banner' => json_encode([
-                'image' => '1.png', // Assign the correct image name
-                'alt' => 'Web Banner Alt Text', // Add alt text
-            ]),
-            'mob_banner' => json_encode([
-                'image' => '2.png', // Assign the correct image name
-                'alt' => 'Mobile Banner Alt Text', // Add alt text
-            ]),
+            'web_banner' => [
+                'image' => '1.png',
+                'alt' => 'Web Banner Alt Text',
+            ],
+            'mob_banner' => [
+                'image' => '2.png',
+                'alt' => 'Mobile Banner Alt Text',
+            ],
             'btn_1' => 'btn 1',
             'btn_1_url' => 'http::btn',
             'G_rating_image' => '1.png',

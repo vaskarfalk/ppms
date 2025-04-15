@@ -31,8 +31,8 @@ class ContactSubmissionsTable extends BaseWidget
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Submitted At')
                     ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->sortable(),
+                    
 
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
@@ -47,7 +47,7 @@ class ContactSubmissionsTable extends BaseWidget
                     TextInput::make('email')->label('Email')->disabled(),
                     TextInput::make('services')->label('Services')->disabled(),
                     Textarea::make('message')->label('Message')->disabled(),
-                    TextInput::make('created_at')->label('Submitted At')->disabled(),
+                  
                 ]),
            
             ])

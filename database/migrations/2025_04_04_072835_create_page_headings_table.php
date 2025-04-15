@@ -15,14 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
-            $table->json('web_banner')->nullable()->default(json_encode([
-                'image' => null,
-                'alt' => null,
-            ]));
-            $table->json('mob_banner')->nullable()->default(json_encode([
-                'image' => null,
-                'alt' => null,
-            ]));
+            $table->json('web_banner')->nullable();
+            $table->json('mob_banner')->nullable();
             $table->string('btn_1')->nullable();
             $table->string('btn_1_url')->nullable();
 

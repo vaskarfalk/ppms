@@ -67,6 +67,7 @@ class PostResource extends Resource
                                 Forms\Components\FileUpload::make('image')
                                     ->image()
                                     ->label('Featured Image')
+                                    ->openable()
                                     ->directory('posts')
                                     ->required(),
                             ]),

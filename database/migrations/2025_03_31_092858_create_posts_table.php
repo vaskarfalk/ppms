@@ -16,11 +16,11 @@ return new class extends Migration
             // $table->foreignId('category_id')->constrained('categories')->nullable();  
             // $table->json('categories')->nullable(); 
      
-            $table->json('categories')->default(json_encode([]));
-            $table->string('title');
-            $table->longText('content'); 
+            $table->json('categories')->nullable();
+            $table->string('title')->nullable();
+            $table->longText('content')->nullable(); 
             $table->longText('excerpt')->nullable();
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->nullable();
             $table->boolean('is_active')->default(true);
             $table->string('image')->nullable();
             $table->string('meta_title')->nullable();
