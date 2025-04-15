@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ContactFormSubmission extends Model
 {
     //
+    
 protected $fillable = [
         'fname',
         'lname',

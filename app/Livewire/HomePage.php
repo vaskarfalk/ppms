@@ -9,8 +9,8 @@ use App\Models\Settings\FeaturesSection;
 use App\Models\Settings\PageHeading;
 use App\Models\Testimonial;
 use App\Notifications\HomeEnquiryForm;
+use Filament\Notifications\Notification as NotificationsNotification;
 use Illuminate\Support\Facades\Notification;
-use Livewire\Attributes\Title;
 use Livewire\Component;
 
 
@@ -94,6 +94,13 @@ class HomePage extends Component
             'services' => $this->selectedService,
             'message' => $this->message,
         ]);
+        // Send a notification
+        NotificationsNotification::make()
+            ->title('New Contact Form Submission')
+            ->body('You have a new message from the contact form.')
+            ->success()
+            ->send();
+
 
         $data = [
             'name' => $this->fname . ' ' . $this->lname,

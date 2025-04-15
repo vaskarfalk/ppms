@@ -72,10 +72,10 @@ class GalleryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('row_number')
-                ->label('#')
-                ->getStateUsing(fn ($rowLoop, $record) => $rowLoop->iteration)
-                ->sortable(false),
+                // Tables\Columns\TextColumn::make('row_number')
+                // ->label('#')
+                // ->getStateUsing(fn ($rowLoop, $record) => $rowLoop->iteration)
+                // ->sortable(false),
 
                 // Tables\Columns\ImageColumn::make('image'),
 

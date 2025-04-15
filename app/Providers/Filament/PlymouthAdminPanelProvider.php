@@ -34,6 +34,7 @@ class PlymouthAdminPanelProvider extends PanelProvider
                 'primary' =>  '#1e9f40',
 
             ])
+            ->databaseNotifications()
             ->brandLogoHeight('auto')
             ->brandLogo(asset('assets/images/logo.png'))
             ->darkModeBrandLogo(asset('assets/images/logo-2.png'))
