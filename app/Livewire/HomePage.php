@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Models\Settings\FeaturesSection;
 use App\Models\Settings\PageHeading;
 use App\Models\Testimonial;
+use App\Models\User;
 use App\Notifications\HomeEnquiryForm;
 use Filament\Notifications\Notification as NotificationsNotification;
 use Illuminate\Support\Facades\Notification;
@@ -33,7 +34,8 @@ class HomePage extends Component
         'fname' => 'required|string|min:3|max:255',
         'lname' => 'required|string|min:3|max:255',
         'email' => 'required|email|max:255|min:3',
-        'phone' => 'required|numeric|min:10',
+        // 'phone' => 'required|numeric|digits_between:10,12',
+        'phone' => ['required', 'numeric', 'regex:/^[0-9]{10,11}$/'],
         'selectedService' => 'required',
         'message' => 'required|string|min:5',
     ];
@@ -58,7 +60,9 @@ class HomePage extends Component
 
             'phone.required' => 'The phone number is required.',
             'phone.numeric' => 'The phone number must be a valid number.',
-            'phone.min' => 'The phone number must be at least 10 digits.',
+            // 'phone.min' => 'The phone number must be at least 10 digits.',
+            'phone.regex' => 'The phone number must be of 11 digits',
+
 
             'selectedService.required' => 'Please select a service.',
 
@@ -94,12 +98,13 @@ class HomePage extends Component
             'services' => $this->selectedService,
             'message' => $this->message,
         ]);
+        // $recipient = auth()->user();
+        $recipient = User::where('email', 'admin@gmail.com')->first();
         // Send a notification
         NotificationsNotification::make()
             ->title('New Contact Form Submission')
             ->body('You have a new message from the contact form.')
-            ->success()
-            ->send();
+            ->sendToDatabase($recipient);
 
 
         $data = [
